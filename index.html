@@ -1062,6 +1062,7 @@ footer p{
 
 <script>
 
+    <script>
 
 /* ================= MENU ================= */
 
@@ -1079,7 +1080,6 @@ function toggleMenu(){
 const TIKTOK_API =
     "https://i-felt-it-mth7.vercel.app/api/tiktok/videos";
 
-
 let videos = [];
 
 let feedLoaded = false;
@@ -1095,19 +1095,14 @@ async function loadTikTokVideos(){
             await fetch(TIKTOK_API);
 
         if(!response.ok){
-
             throw new Error("API Error");
-
         }
-
 
         const result =
             await response.json();
 
-
         videos =
             result?.data?.videos || [];
-
 
         if(videos.length === 0){
 
@@ -1120,9 +1115,7 @@ async function loadTikTokVideos(){
 
         }
 
-
         buildVideoFeed();
-
 
     }
     catch(error){
@@ -1139,29 +1132,24 @@ async function loadTikTokVideos(){
 }
 
 
-/* ================= BUILD VIDEO FEED ================= */
+/* ================= BUILD FEED ================= */
 
 function buildVideoFeed(){
 
     if(feedLoaded) return;
-
 
     const container =
         document.getElementById(
             "videoFeedContainer"
         );
 
-
     const loading =
         document.getElementById(
             "feedLoading"
         );
 
-
     if(loading){
-
         loading.remove();
-
     }
 
 
@@ -1173,31 +1161,34 @@ function buildVideoFeed(){
         slide.className =
             "video-slide";
 
-
-        /* VIDEO */
-
-        const player =
-            document.createElement("iframe");
+        slide.dataset.index =
+            index;
 
 
-        player.src =
-            video.embed_link;
+        /* ================= VIDEO PLACEHOLDER ================= */
+
+        const playerBox =
+            document.createElement("div");
+
+        playerBox.className =
+            "video-player-box";
+
+        playerBox.dataset.videoId =
+            video.id;
+
+        playerBox.dataset.loaded =
+            "false";
+
+        playerBox.innerHTML = `
+            <div class="video-loading">
+                LOADING...
+            </div>
+        `;
+
+        slide.appendChild(playerBox);
 
 
-        player.allow =
-            "autoplay; fullscreen";
-
-
-        player.setAttribute(
-            "allowfullscreen",
-            ""
-        );
-
-
-        slide.appendChild(player);
-
-
-        /* INFO */
+        /* ================= INFO ================= */
 
         const info =
             document.createElement("div");
@@ -1205,41 +1196,33 @@ function buildVideoFeed(){
         info.className =
             "video-info";
 
-
         const title =
             document.createElement("h3");
-
 
         title.textContent =
             "I FELT IT";
 
-
         const caption =
             document.createElement("p");
-
 
         caption.textContent =
             video.video_description ||
             video.title ||
             "";
 
-
         info.appendChild(title);
-
         info.appendChild(caption);
-
 
         slide.appendChild(info);
 
 
-        /* ACTIONS */
+        /* ================= ACTIONS ================= */
 
         const actions =
             document.createElement("div");
 
         actions.className =
             "video-actions";
-
 
         actions.innerHTML = `
 
@@ -1296,9 +1279,7 @@ function buildVideoFeed(){
 
         `;
 
-
         slide.appendChild(actions);
-
 
         container.appendChild(slide);
 
@@ -1306,6 +1287,228 @@ function buildVideoFeed(){
 
 
     feedLoaded = true;
+
+
+    /* ================= FIRST VIDEO ================= */
+
+    loadVideoAt(0);
+
+    /* ================= PRELOAD SECOND ================= */
+
+    if(videos.length > 1){
+        loadVideoAt(1);
+    }
+
+}
+
+
+/* ================= LOAD ONE VIDEO ================= */
+
+function loadVideoAt(index){
+
+    const slide =
+        document.querySelector(
+            `.video-slide[data-index="${index}"]`
+        );
+
+    if(!slide) return;
+
+
+    const box =
+        slide.querySelector(
+            ".video-player-box"
+        );
+
+    if(!box) return;
+
+
+    if(box.dataset.loaded === "true"){
+        return;
+    }
+
+
+    const video =
+        videos[index];
+
+    if(!video || !video.embed_link){
+        return;
+    }
+
+
+    const iframe =
+        document.createElement("iframe");
+
+
+    iframe.src =
+        video.embed_link;
+
+
+    iframe.allow =
+        "autoplay; fullscreen";
+
+    iframe.setAttribute(
+        "allowfullscreen",
+        ""
+    );
+
+    iframe.loading =
+        "eager";
+
+
+    box.innerHTML = "";
+
+    box.appendChild(iframe);
+
+    box.dataset.loaded =
+        "true";
+
+}
+
+
+/* ================= UNLOAD OLD VIDEO ================= */
+
+function unloadVideoAt(index){
+
+    const slide =
+        document.querySelector(
+            `.video-slide[data-index="${index}"]`
+        );
+
+    if(!slide) return;
+
+
+    const box =
+        slide.querySelector(
+            ".video-player-box"
+        );
+
+    if(!box) return;
+
+
+    /* Keep current and nearby videos */
+
+    box.innerHTML = `
+        <div class="video-loading">
+            LOADING...
+        </div>
+    `;
+
+    box.dataset.loaded =
+        "false";
+
+}
+
+
+/* ================= VIDEO OBSERVER ================= */
+
+let currentVideoIndex = 0;
+
+
+const videoObserver =
+    new IntersectionObserver(
+        function(entries){
+
+            entries.forEach(function(entry){
+
+                if(!entry.isIntersecting){
+                    return;
+                }
+
+
+                const slide =
+                    entry.target;
+
+                const index =
+                    Number(
+                        slide.dataset.index
+                    );
+
+
+                currentVideoIndex =
+                    index;
+
+
+                /* Load current video */
+
+                loadVideoAt(index);
+
+
+                /* Preload next */
+
+                if(
+                    videos[index + 1]
+                ){
+
+                    loadVideoAt(
+                        index + 1
+                    );
+
+                }
+
+
+                /* Preload previous */
+
+                if(
+                    videos[index - 1]
+                ){
+
+                    loadVideoAt(
+                        index - 1
+                    );
+
+                }
+
+
+                /*
+                    Remove videos
+                    far away from
+                    current position
+                */
+
+                videos.forEach(
+                    function(video,i){
+
+                        if(
+                            Math.abs(i-index) > 1
+                        ){
+
+                            unloadVideoAt(i);
+
+                        }
+
+                    }
+                );
+
+            });
+
+        },
+        {
+            root:
+                document.getElementById(
+                    "videoFeedContainer"
+                ),
+
+            threshold:0.65
+        }
+    );
+
+
+/* ================= START OBSERVER ================= */
+
+function startVideoObserver(){
+
+    const slides =
+        document.querySelectorAll(
+            ".video-slide"
+        );
+
+    slides.forEach(function(slide){
+
+        videoObserver.observe(
+            slide
+        );
+
+    });
 
 }
 
@@ -1330,6 +1533,13 @@ function openVideoFeed(){
     if(!feedLoaded){
 
         loadTikTokVideos();
+
+    }
+    else{
+
+        loadVideoAt(
+            currentVideoIndex
+        );
 
     }
 
@@ -1359,11 +1569,15 @@ function closeVideoFeed(){
 
 function toggleWebsiteLike(button){
 
-    button.classList.toggle("active");
+    button.classList.toggle(
+        "active"
+    );
 
 
     if(
-        button.classList.contains("active")
+        button.classList.contains(
+            "active"
+        )
     ){
 
         button.innerHTML =
@@ -1384,11 +1598,15 @@ function toggleWebsiteLike(button){
 
 function toggleFavorite(button){
 
-    button.classList.toggle("active");
+    button.classList.toggle(
+        "active"
+    );
 
 
     if(
-        button.classList.contains("active")
+        button.classList.contains(
+            "active"
+        )
     ){
 
         button.innerHTML =
@@ -1414,7 +1632,6 @@ async function websiteShare(){
         await navigator.clipboard.writeText(
             window.location.href
         );
-
 
         alert(
             "Link copied!"
@@ -1460,12 +1677,13 @@ function websiteComment(){
 /* ================= MOBILE RIGHT SWIPE ================= */
 
 let touchStartX = 0;
-
 let touchStartY = 0;
 
 
 const home =
-    document.getElementById("home");
+    document.getElementById(
+        "home"
+    );
 
 
 home.addEventListener(
@@ -1479,7 +1697,9 @@ home.addEventListener(
             e.touches[0].clientY;
 
     },
-    {passive:true}
+    {
+        passive:true
+    }
 );
 
 
@@ -1497,7 +1717,6 @@ home.addEventListener(
         const diffX =
             touchEndX -
             touchStartX;
-
 
         const diffY =
             touchEndY -
@@ -1521,6 +1740,9 @@ home.addEventListener(
 /* ================= START ================= */
 
 loadTikTokVideos();
+
+
+</script>
 
 </script>
 
