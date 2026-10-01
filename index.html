@@ -1325,7 +1325,6 @@ function loadVideoAt(index){
 
     if(!slide) return;
 
-
     const box =
         slide.querySelector(
             ".video-player-box"
@@ -1333,27 +1332,33 @@ function loadVideoAt(index){
 
     if(!box) return;
 
-
     if(box.dataset.loaded === "true"){
         return;
     }
 
-
     const video =
         videos[index];
 
-    if(!video || !video.embed_link){
+    if(!video || !video.id){
         return;
     }
-
 
     const iframe =
         document.createElement("iframe");
 
-
     iframe.src =
-        video.embed_link;
-
+        "https://www.tiktok.com/player/v1/" +
+        video.id +
+        "?controls=0" +
+        "&progress_bar=1" +
+        "&play_button=0" +
+        "&volume_control=0" +
+        "&fullscreen_button=0" +
+        "&timestamp=1" +
+        "&description=0" +
+        "&music_info=0" +
+        "&autoplay=1" +
+        "&muted=0";
 
     iframe.allow =
         "autoplay; fullscreen";
@@ -1363,10 +1368,8 @@ function loadVideoAt(index){
         ""
     );
 
-
     iframe.loading =
         "eager";
-
 
     iframe.style.width =
         "100%";
@@ -1377,7 +1380,6 @@ function loadVideoAt(index){
     iframe.style.border =
         "0";
 
-
     box.innerHTML = "";
 
     box.appendChild(iframe);
@@ -1385,19 +1387,44 @@ function loadVideoAt(index){
     box.dataset.loaded =
         "true";
 
-
     iframe.addEventListener(
         "load",
         function(){
 
-            currentIframe =
-                iframe;
+            /*
+             * Give TikTok player a moment
+             * to become ready.
+             */
+
+            setTimeout(function(){
+
+                iframe.contentWindow.postMessage({
+
+                    "x-tiktok-player": true,
+
+                    type: "unMute",
+
+                    value: null
+
+                }, "*");
+
+
+                iframe.contentWindow.postMessage({
+
+                    "x-tiktok-player": true,
+
+                    type: "play",
+
+                    value: null
+
+                }, "*");
+
+            }, 500);
 
         }
     );
 
 }
-
 
 /* ================= RESET VIDEO ================= */
 
