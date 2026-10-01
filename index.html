@@ -78,6 +78,49 @@ body{
 }
 
 
+/* ================= VIDEO FEED SWITCH ================= */
+
+.video-switch{
+    position:fixed;
+    right:7%;
+    bottom:35px;
+    z-index:1100;
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    padding:11px 16px;
+
+    background:rgba(7,7,7,.82);
+    border:1px solid #333;
+
+    color:#fff;
+    font-family:'Montserrat',sans-serif;
+    font-size:10px;
+    letter-spacing:2px;
+
+    cursor:pointer;
+
+    backdrop-filter:blur(12px);
+
+    transition:.3s;
+}
+
+.video-switch:hover{
+    border-color:#fff;
+    transform:translateY(-3px);
+}
+
+.video-switch-dot{
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:#fff;
+    box-shadow:0 0 10px rgba(255,255,255,.7);
+}
+
+
 /* ================= HERO ================= */
 
 .hero{
@@ -531,6 +574,11 @@ footer p{
         align-items:center;
     }
 
+    /* Hide PC switch on mobile */
+    .video-switch{
+        display:none;
+    }
+
 }
 
 
@@ -704,6 +752,19 @@ footer p{
     </div>
 
 </header>
+
+
+<!-- ================= VIDEO FEED SWITCH ================= -->
+
+<button
+    class="video-switch"
+    onclick="openVideoFeed()">
+
+    <span class="video-switch-dot"></span>
+
+    VIDEO FEED →
+
+</button>
 
 
 <!-- ================= HERO ================= -->
@@ -1396,7 +1457,7 @@ function websiteComment(){
 }
 
 
-/* ================= RIGHT SWIPE ================= */
+/* ================= MOBILE RIGHT SWIPE ================= */
 
 let touchStartX = 0;
 
