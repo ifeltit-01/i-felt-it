@@ -1032,6 +1032,215 @@ async function loadTikTokVideos(){
 
 loadTikTokVideos();
 
+    /* ================= SWIPE VIDEO FEED ================= */
+
+function openVideoFeed(){
+
+    const feed = document.getElementById("videoFeed");
+
+    feed.classList.add("active");
+
+    document.body.style.overflow = "hidden";
+
+    buildVideoFeed();
+
+}
+
+
+function closeVideoFeed(){
+
+    const feed = document.getElementById("videoFeed");
+
+    feed.classList.remove("active");
+
+    document.body.style.overflow = "";
+
+}
+
+
+let videoFeedBuilt = false;
+
+
+function buildVideoFeed(){
+
+    if(videoFeedBuilt) return;
+
+    const container =
+        document.getElementById("videoFeedContainer");
+
+    const items =
+        document.querySelectorAll(".tiktok-item");
+
+    items.forEach((item,index)=>{
+
+        const iframe =
+            item.querySelector("iframe");
+
+        const caption =
+            item.querySelector(".tiktok-caption");
+
+        const slide =
+            document.createElement("div");
+
+        slide.className = "video-slide";
+
+
+        const newIframe =
+            document.createElement("iframe");
+
+        newIframe.src = iframe.src;
+
+        newIframe.allow =
+            "autoplay; fullscreen";
+
+        newIframe.setAttribute(
+            "allowfullscreen",
+            ""
+        );
+
+
+        slide.appendChild(newIframe);
+
+
+        const info =
+            document.createElement("div");
+
+        info.className = "video-info";
+
+        const title =
+            document.createElement("h3");
+
+        title.textContent =
+            "I FELT IT";
+
+
+        const text =
+            document.createElement("p");
+
+        text.textContent =
+            caption?.textContent || "";
+
+
+        info.appendChild(title);
+        info.appendChild(text);
+
+
+        const actions =
+            document.createElement("div");
+
+        actions.className =
+            "video-actions";
+
+
+        actions.innerHTML = `
+            <button class="video-action"
+                onclick="toggleWebsiteLike(this)">
+                ♡
+                <span>LIKE</span>
+            </button>
+
+            <button class="video-action"
+                onclick="websiteComment()">
+                💬
+                <span>COMMENT</span>
+            </button>
+
+            <button class="video-action"
+                onclick="websiteShare()">
+                ↗
+                <span>SHARE</span>
+            </button>
+
+            <button class="video-action"
+                onclick="toggleFavorite(this)">
+                ☆
+                <span>SAVE</span>
+            </button>
+        `;
+
+
+        slide.appendChild(info);
+        slide.appendChild(actions);
+
+        container.appendChild(slide);
+
+    });
+
+
+    videoFeedBuilt = true;
+
+}
+
+
+/* ================= WEBSITE LIKE ================= */
+
+function toggleWebsiteLike(button){
+
+    button.classList.toggle("active");
+
+    if(button.classList.contains("active")){
+        button.innerHTML = "♥<span>LIKED</span>";
+    }
+    else{
+        button.innerHTML = "♡<span>LIKE</span>";
+    }
+
+}
+
+
+/* ================= FAVORITE ================= */
+
+function toggleFavorite(button){
+
+    button.classList.toggle("active");
+
+    if(button.classList.contains("active")){
+        button.innerHTML = "★<span>SAVED</span>";
+    }
+    else{
+        button.innerHTML = "☆<span>SAVE</span>";
+    }
+
+}
+
+
+/* ================= SHARE ================= */
+
+async function websiteShare(){
+
+    try{
+
+        await navigator.clipboard.writeText(
+            window.location.href
+        );
+
+        alert("Link copied!");
+
+    }
+    catch(error){
+
+        alert("Share link: " + window.location.href);
+
+    }
+
+}
+
+
+/* ================= COMMENT ================= */
+
+function websiteComment(){
+
+    const comment =
+        prompt("Write your comment:");
+
+    if(comment && comment.trim()){
+
+        alert("Comment saved on this device.");
+
+    }
+
+}
+
 </script>
     
 </body>
