@@ -1,4 +1,25 @@
 export default async function handler(req, res) {
+
+    // Allow the GitHub Pages website to access this API
+    res.setHeader(
+        "Access-Control-Allow-Origin",
+        "https://ifeltit-01.github.io"
+    );
+
+    res.setHeader(
+        "Access-Control-Allow-Methods",
+        "GET, OPTIONS"
+    );
+
+    res.setHeader(
+        "Access-Control-Allow-Headers",
+        "Content-Type"
+    );
+
+    if (req.method === "OPTIONS") {
+        return res.status(200).end();
+    }
+
     const accessToken = process.env.TIKTOK_ACCESS_TOKEN;
 
     if (!accessToken) {
@@ -8,14 +29,17 @@ export default async function handler(req, res) {
     }
 
     try {
+
         const response = await fetch(
             "https://open.tiktokapis.com/v2/video/list/?fields=id,title,video_description,duration,cover_image_url,embed_link,like_count,comment_count,share_count,view_count,create_time",
             {
                 method: "POST",
+
                 headers: {
                     "Authorization": `Bearer ${accessToken}`,
                     "Content-Type": "application/json"
                 },
+
                 body: JSON.stringify({
                     max_count: 20
                 })
@@ -31,8 +55,10 @@ export default async function handler(req, res) {
         return res.status(200).json(data);
 
     } catch (error) {
+
         return res.status(500).json({
             error: error.message
         });
+
     }
 }
