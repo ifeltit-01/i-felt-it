@@ -859,11 +859,9 @@ async function loadTikTokVideos(){
             player.className =
                 "tiktok-player";
 
-            player.src =
-                "https://www.tiktok.com/player/v1/" +
-                video.id +
-                "?autoplay=0&loop=1&description=0&music_info=0";
+            player.src = player.src = video.embed_link;
 
+                
             player.allow =
                 "autoplay; fullscreen";
 
