@@ -910,5 +910,129 @@ loadTikTokVideos();
 
 </script>
 
+/* ================= VIDEO SWIPE FEED ================= */
+
+.video-feed{
+    position:fixed;
+    inset:0;
+    background:#000;
+    z-index:2000;
+    display:none;
+    overflow:hidden;
+}
+
+.video-feed.active{
+    display:block;
+}
+
+.video-feed-close{
+    position:absolute;
+    top:25px;
+    left:25px;
+    z-index:20;
+    width:42px;
+    height:42px;
+    border:1px solid #444;
+    background:rgba(0,0,0,.5);
+    color:#fff;
+    font-size:20px;
+    cursor:pointer;
+}
+
+.video-feed-container{
+    height:100%;
+    width:100%;
+    overflow-y:auto;
+    scroll-snap-type:y mandatory;
+    scrollbar-width:none;
+}
+
+.video-feed-container::-webkit-scrollbar{
+    display:none;
+}
+
+.video-slide{
+    position:relative;
+    height:100vh;
+    width:100%;
+    scroll-snap-align:start;
+    background:#000;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.video-slide iframe{
+    width:min(100vw,500px);
+    height:100vh;
+    border:0;
+}
+
+.video-info{
+    position:absolute;
+    left:20px;
+    bottom:35px;
+    z-index:10;
+    max-width:65%;
+    text-align:left;
+    pointer-events:none;
+}
+
+.video-info h3{
+    font-family:'Cormorant Garamond',serif;
+    font-size:28px;
+    margin-bottom:8px;
+}
+
+.video-info p{
+    color:#bbb;
+    font-size:12px;
+    line-height:1.6;
+}
+
+.video-actions{
+    position:absolute;
+    right:20px;
+    bottom:35px;
+    z-index:10;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+}
+
+.video-action{
+    width:48px;
+    height:48px;
+    border:1px solid #444;
+    border-radius:50%;
+    background:rgba(0,0,0,.65);
+    color:#fff;
+    cursor:pointer;
+    font-size:20px;
+}
+
+.video-action span{
+    display:block;
+    font-size:9px;
+    margin-top:2px;
+    color:#aaa;
+}
+
+.video-action.active{
+    background:#fff;
+    color:#000;
+}
+
+.video-open-btn{
+    margin-top:15px;
+    padding:10px 18px;
+    border:1px solid #555;
+    background:#000;
+    color:#fff;
+    cursor:pointer;
+    font-size:10px;
+    letter-spacing:2px;
+}
+    
 </body>
 </html>
