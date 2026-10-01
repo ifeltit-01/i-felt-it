@@ -1241,7 +1241,64 @@ function websiteComment(){
 
 }
 
+    /* ================= RIGHT SWIPE ================= */
+
+let touchStartX = 0;
+let touchStartY = 0;
+
+document.addEventListener("touchstart", function(e){
+
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+
+});
+
+
+document.addEventListener("touchend", function(e){
+
+    const touchEndX =
+        e.changedTouches[0].clientX;
+
+    const touchEndY =
+        e.changedTouches[0].clientY;
+
+    const diffX =
+        touchEndX - touchStartX;
+
+    const diffY =
+        touchEndY - touchStartY;
+
+
+    if(
+        Math.abs(diffX) > 80 &&
+        Math.abs(diffX) > Math.abs(diffY) &&
+        diffX > 0
+    ){
+
+        openVideoFeed();
+
+    }
+
+});
+
 </script>
+
+<!-- ================= VIDEO FEED ================= -->
+
+<div class="video-feed" id="videoFeed">
+
+    <button
+        class="video-feed-close"
+        onclick="closeVideoFeed()">
+        ×
+    </button>
+
+    <div
+        class="video-feed-container"
+        id="videoFeedContainer">
+    </div>
+
+</div>
     
 </body>
 </html>
