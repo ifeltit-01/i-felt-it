@@ -390,6 +390,30 @@ footer{
     align-items:center;
 }
 
+.footer-right{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-end;
+    gap:12px;
+}
+
+.footer-links{
+    display:flex;
+    gap:20px;
+}
+
+.footer-links a{
+    color:#777;
+    text-decoration:none;
+    font-size:10px;
+    letter-spacing:2px;
+    transition:.3s;
+}
+
+.footer-links a:hover{
+    color:#fff;
+}
+    
 .footer-logo{
     font-family:'Cormorant Garamond',serif;
     font-size:28px;
@@ -474,6 +498,10 @@ footer p{
         flex-direction:column;
         gap:15px;
         text-align:center;
+    }
+
+    .footer-right{
+    align-items:center;
     }
 }
 </style>
@@ -678,14 +706,23 @@ footer p{
 
 <footer>
 
-    <div class="footer-logo">
+       <div class="footer-logo">
         I FELT IT
     </div>
 
-    <p>
-        © 2026 I FELT IT — ALL RIGHTS RESERVED
-    </p>
+    <div class="footer-right">
 
+        <div class="footer-links">
+            <a href="terms.html">TERMS</a>
+            <a href="privacy.html">PRIVACY</a>
+        </div>
+
+        <p>
+            © 2026 I FELT IT — ALL RIGHTS RESERVED
+        </p>
+
+    </div>
+    
 </footer>
 
 
