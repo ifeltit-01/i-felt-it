@@ -805,6 +805,111 @@ function toggleMenu(){
 
 }
 
+
+/* ================= TIKTOK API ================= */
+
+const TIKTOK_API =
+    "https://i-felt-it-mth7.vercel.app/api/tiktok/videos";
+
+async function loadTikTokVideos(){
+
+    const feed =
+        document.getElementById("tiktok-feed");
+
+    try{
+
+        const response =
+            await fetch(TIKTOK_API);
+
+        if(!response.ok){
+
+            throw new Error("API Error");
+
+        }
+
+        const result =
+            await response.json();
+
+        const videos =
+            result?.data?.videos || [];
+
+        if(videos.length === 0){
+
+            feed.innerHTML =
+                '<div class="tiktok-loading">NO VIDEOS FOUND</div>';
+
+            return;
+
+        }
+
+        feed.innerHTML = "";
+
+        videos.forEach(video => {
+
+            const item =
+                document.createElement("div");
+
+            item.className =
+                "tiktok-item";
+
+
+            const player =
+                document.createElement("iframe");
+
+            player.className =
+                "tiktok-player";
+
+            player.src =
+                "https://www.tiktok.com/player/v1/" +
+                video.id +
+                "?autoplay=0&loop=1&description=1&music_info=1";
+
+            player.allow =
+                "autoplay; fullscreen";
+
+            player.setAttribute(
+                "allowfullscreen",
+                ""
+            );
+
+
+            const caption =
+                document.createElement("div");
+
+            caption.className =
+                "tiktok-caption";
+
+            caption.textContent =
+                video.video_description ||
+                video.title ||
+                "";
+
+
+            item.appendChild(player);
+
+            item.appendChild(caption);
+
+            feed.appendChild(item);
+
+        });
+
+    }
+    catch(error){
+
+        console.error(error);
+
+        feed.innerHTML =
+            '<div class="tiktok-loading">COULD NOT LOAD VIDEOS</div>';
+
+    }
+
+}
+
+
+/* ================= START ================= */
+
+loadTikTokVideos();
+
 </script>
 
 </body>
