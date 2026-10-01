@@ -1083,6 +1083,8 @@ footer p{
 
 <script>
 
+    <script>
+
 /* ================= MENU ================= */
 
 function toggleMenu(){
@@ -1104,6 +1106,8 @@ let videos = [];
 let feedLoaded = false;
 
 let currentVideoIndex = 0;
+
+let currentIframe = null;
 
 
 /* ================= LOAD VIDEOS ================= */
@@ -1186,7 +1190,7 @@ function buildVideoFeed(){
             index;
 
 
-        /* ================= VIDEO PLACEHOLDER ================= */
+        /* ================= VIDEO ================= */
 
         const playerBox =
             document.createElement("div");
@@ -1202,7 +1206,7 @@ function buildVideoFeed(){
 
         playerBox.innerHTML = `
             <div class="video-loading">
-                LOADING...
+                TAP TO LOAD
             </div>
         `;
 
@@ -1232,6 +1236,7 @@ function buildVideoFeed(){
             "";
 
         info.appendChild(title);
+
         info.appendChild(caption);
 
         slide.appendChild(info);
@@ -1273,7 +1278,7 @@ function buildVideoFeed(){
 
             <button
                 class="video-action"
-                onclick="websiteShare()">
+                onclick="websiteShare(${index})">
 
                 ↗
 
@@ -1305,23 +1310,6 @@ function buildVideoFeed(){
 
 
     feedLoaded = true;
-
-
-    /* ================= LOAD FIRST VIDEO ================= */
-
-    loadVideoAt(0);
-
-
-    /* ================= PRELOAD SECOND ================= */
-
-    if(videos.length > 1){
-
-        loadVideoAt(1);
-
-    }
-
-
-    /* ================= START OBSERVER ================= */
 
     startVideoObserver();
 
@@ -1377,8 +1365,19 @@ function loadVideoAt(index){
         ""
     );
 
+
     iframe.loading =
         "eager";
+
+
+    iframe.style.width =
+        "100%";
+
+    iframe.style.height =
+        "100%";
+
+    iframe.style.border =
+        "0";
 
 
     box.innerHTML = "";
@@ -1388,10 +1387,60 @@ function loadVideoAt(index){
     box.dataset.loaded =
         "true";
 
+
+    iframe.addEventListener(
+        "load",
+        function(){
+
+            currentIframe =
+                iframe;
+
+        }
+    );
+
 }
 
 
-/* ================= UNLOAD OLD VIDEO ================= */
+/* ================= RESET VIDEO ================= */
+
+function resetVideoAt(index){
+
+    const slide =
+        document.querySelector(
+            `.video-slide[data-index="${index}"]`
+        );
+
+    if(!slide) return;
+
+
+    const box =
+        slide.querySelector(
+            ".video-player-box"
+        );
+
+    if(!box) return;
+
+
+    /*
+       Remove the old iframe completely.
+
+       When this video is opened again,
+       a fresh iframe starts from the beginning.
+    */
+
+    box.innerHTML = `
+        <div class="video-loading">
+            LOADING...
+        </div>
+    `;
+
+    box.dataset.loaded =
+        "false";
+
+}
+
+
+/* ================= UNLOAD FAR VIDEO ================= */
 
 function unloadVideoAt(index){
 
@@ -1446,16 +1495,29 @@ const videoObserver =
                     );
 
 
+                /* ================= PREVIOUS VIDEO ================= */
+
+                if(
+                    currentVideoIndex !== index
+                ){
+
+                    resetVideoAt(
+                        currentVideoIndex
+                    );
+
+                }
+
+
+                /* ================= CURRENT ================= */
+
                 currentVideoIndex =
                     index;
 
 
-                /* Load current */
-
                 loadVideoAt(index);
 
 
-                /* Preload next */
+                /* ================= NEXT ONLY ================= */
 
                 if(videos[index + 1]){
 
@@ -1466,18 +1528,7 @@ const videoObserver =
                 }
 
 
-                /* Preload previous */
-
-                if(videos[index - 1]){
-
-                    loadVideoAt(
-                        index - 1
-                    );
-
-                }
-
-
-                /* Unload far videos */
+                /* ================= UNLOAD FAR VIDEOS ================= */
 
                 videos.forEach(
                     function(video,i){
@@ -1554,6 +1605,10 @@ function openVideoFeed(){
     }
     else{
 
+        resetVideoAt(
+            currentVideoIndex
+        );
+
         loadVideoAt(
             currentVideoIndex
         );
@@ -1578,6 +1633,16 @@ function closeVideoFeed(){
 
     document.body.style.overflow =
         "";
+
+
+    /*
+       Stop the current video by
+       removing its iframe.
+    */
+
+    resetVideoAt(
+        currentVideoIndex
+    );
 
 }
 
@@ -1642,12 +1707,21 @@ function toggleFavorite(button){
 
 /* ================= SHARE ================= */
 
-async function websiteShare(){
+async function websiteShare(index){
+
+    const video =
+        videos[index];
+
+    const shareUrl =
+        video && video.share_url
+            ? video.share_url
+            : window.location.href;
+
 
     try{
 
         await navigator.clipboard.writeText(
-            window.location.href
+            shareUrl
         );
 
         alert(
@@ -1659,7 +1733,7 @@ async function websiteShare(){
 
         alert(
             "Share link: " +
-            window.location.href
+            shareUrl
         );
 
     }
@@ -1758,6 +1832,8 @@ home.addEventListener(
 /* ================= START ================= */
 
 loadTikTokVideos();
+
+</script>
 
 </script>
 
