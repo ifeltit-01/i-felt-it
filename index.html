@@ -1,8 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
 <title>I Felt It — Feel What Words Can't Say</title>
 
@@ -10,15 +16,18 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
 
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
+
 html{
     scroll-behavior:smooth;
 }
+
 
 body{
     background:#070707;
@@ -36,15 +45,21 @@ body{
     left:0;
     width:100%;
     height:80px;
+
     display:flex;
     align-items:center;
     justify-content:space-between;
+
     padding:0 7%;
+
     z-index:1000;
+
     background:rgba(7,7,7,.72);
     backdrop-filter:blur(15px);
+
     border-bottom:1px solid rgba(255,255,255,.08);
 }
+
 
 .logo{
     font-family:'Cormorant Garamond',serif;
@@ -53,11 +68,13 @@ body{
     font-weight:600;
 }
 
+
 .nav-links{
     display:flex;
     gap:35px;
     list-style:none;
 }
+
 
 .nav-links a{
     color:#ddd;
@@ -67,9 +84,11 @@ body{
     transition:.3s;
 }
 
+
 .nav-links a:hover{
     color:#fff;
 }
+
 
 .menu{
     display:none;
@@ -84,33 +103,48 @@ body{
     position:fixed;
     right:7%;
     bottom:35px;
+
     z-index:1100;
+
     display:flex;
     align-items:center;
     gap:10px;
+
     padding:11px 16px;
+
     background:rgba(7,7,7,.82);
     border:1px solid #333;
+
     color:#fff;
+
     font-family:'Montserrat',sans-serif;
     font-size:10px;
     letter-spacing:2px;
+
     cursor:pointer;
+
     backdrop-filter:blur(12px);
+
     transition:.3s;
 }
+
 
 .video-switch:hover{
     border-color:#fff;
     transform:translateY(-3px);
 }
 
+
 .video-switch-dot{
     width:7px;
     height:7px;
+
     border-radius:50%;
+
     background:#fff;
-    box-shadow:0 0 10px rgba(255,255,255,.7);
+
+    box-shadow:
+        0 0 10px rgba(255,255,255,.7);
 }
 
 
@@ -118,29 +152,42 @@ body{
 
 .hero{
     min-height:100vh;
+
     display:flex;
     align-items:center;
     justify-content:center;
+
     text-align:center;
+
     position:relative;
     overflow:hidden;
+
     padding:120px 20px 80px;
 }
 
+
 .hero::before{
     content:"";
+
     position:absolute;
+
     width:650px;
     height:650px;
+
     border-radius:50%;
-    background:radial-gradient(
-        circle,
-        rgba(255,255,255,.09),
-        transparent 65%
-    );
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.09),
+            transparent 65%
+        );
+
     filter:blur(20px);
+
     animation:glow 7s infinite alternate;
 }
+
 
 @keyframes glow{
 
@@ -156,76 +203,103 @@ body{
 
 }
 
+
 .hero-content{
     position:relative;
     z-index:2;
     max-width:900px;
 }
 
+
 .small-title{
     font-size:11px;
     letter-spacing:6px;
     color:#aaa;
+
     margin-bottom:25px;
+
     animation:fadeUp 1s ease forwards;
 }
 
+
 .hero h1{
     font-family:'Cormorant Garamond',serif;
+
     font-size:clamp(70px,12vw,150px);
+
     line-height:.8;
+
     letter-spacing:8px;
+
     font-weight:500;
+
     animation:fadeUp 1.2s ease forwards;
 }
+
 
 .hero h1 span{
     color:#777;
 }
 
+
 .hero-text{
     max-width:550px;
+
     margin:35px auto;
+
     color:#aaa;
+
     font-size:14px;
     line-height:1.9;
+
     animation:fadeUp 1.5s ease forwards;
 }
+
 
 .hero-buttons{
     display:flex;
     justify-content:center;
     gap:15px;
+
     animation:fadeUp 1.8s ease forwards;
 }
 
+
 .btn{
     padding:15px 32px;
+
     text-decoration:none;
+
     font-size:11px;
     letter-spacing:2px;
+
     transition:.3s;
 }
+
 
 .btn-main{
     background:#fff;
     color:#000;
 }
 
+
 .btn-main:hover{
     background:#ccc;
     transform:translateY(-3px);
 }
+
 
 .btn-outline{
     border:1px solid #444;
     color:#fff;
 }
 
+
 .btn-outline:hover{
     border-color:#fff;
     transform:translateY(-3px);
 }
+
 
 @keyframes fadeUp{
 
@@ -246,19 +320,28 @@ body{
 
 .quote-section{
     padding:150px 8%;
+
     text-align:center;
+
     border-top:1px solid #151515;
     border-bottom:1px solid #151515;
 }
 
+
 .quote{
     max-width:900px;
+
     margin:auto;
+
     font-family:'Cormorant Garamond',serif;
+
     font-size:clamp(32px,5vw,65px);
+
     line-height:1.1;
+
     font-weight:400;
 }
+
 
 .quote span{
     color:#666;
@@ -271,48 +354,68 @@ body{
     padding:120px 8%;
 }
 
+
 .section-header{
     display:flex;
     justify-content:space-between;
     align-items:end;
+
     margin-bottom:50px;
 }
 
+
 .section-title{
     font-family:'Cormorant Garamond',serif;
+
     font-size:55px;
+
     font-weight:500;
 }
 
+
 .section-sub{
     color:#777;
+
     font-size:12px;
+
     letter-spacing:2px;
 }
 
+
 .cards{
     display:grid;
+
     grid-template-columns:repeat(3,1fr);
+
     gap:20px;
 }
 
+
 .card{
     height:420px;
+
     position:relative;
+
     overflow:hidden;
+
     background:#111;
+
     border:1px solid #1e1e1e;
+
     transition:.5s;
 }
+
 
 .card:hover{
     transform:translateY(-10px);
     border-color:#444;
 }
 
+
 .card-bg{
     position:absolute;
     inset:0;
+
     background:
         radial-gradient(
             circle at 50% 30%,
@@ -320,30 +423,42 @@ body{
             transparent 55%
         ),
         linear-gradient(145deg,#111,#050505);
+
     transition:.6s;
 }
+
 
 .card:hover .card-bg{
     transform:scale(1.08);
 }
 
+
 .card-content{
     position:absolute;
+
     bottom:30px;
     left:30px;
+
     z-index:2;
 }
 
+
 .card-content small{
     color:#777;
+
     letter-spacing:3px;
+
     font-size:10px;
 }
 
+
 .card-content h3{
     font-family:'Cormorant Garamond',serif;
+
     font-size:40px;
+
     font-weight:500;
+
     margin-top:8px;
 }
 
@@ -352,11 +467,15 @@ body{
 
 .story{
     display:grid;
+
     grid-template-columns:1fr 1fr;
+
     min-height:600px;
+
     border-top:1px solid #151515;
     border-bottom:1px solid #151515;
 }
+
 
 .story-image{
     background:
@@ -366,35 +485,51 @@ body{
             transparent 50%
         ),
         #0c0c0c;
+
     min-height:500px;
 }
 
+
 .story-text{
     padding:100px 10%;
+
     display:flex;
     flex-direction:column;
     justify-content:center;
 }
 
+
 .story-label{
     font-size:10px;
+
     letter-spacing:4px;
+
     color:#777;
+
     margin-bottom:20px;
 }
 
+
 .story-text h2{
     font-family:'Cormorant Garamond',serif;
+
     font-size:65px;
+
     font-weight:500;
+
     line-height:.95;
+
     margin-bottom:30px;
 }
 
+
 .story-text p{
     color:#999;
+
     font-size:14px;
+
     line-height:2;
+
     max-width:500px;
 }
 
@@ -403,38 +538,58 @@ body{
 
 .social{
     padding:130px 8%;
+
     text-align:center;
 }
 
+
 .social h2{
     font-family:'Cormorant Garamond',serif;
+
     font-size:65px;
+
     font-weight:500;
 }
 
+
 .social p{
     color:#777;
+
     margin:20px auto 40px;
+
     max-width:500px;
+
     line-height:1.8;
 }
 
+
 .social-links{
     display:flex;
+
     justify-content:center;
+
     gap:15px;
+
     flex-wrap:wrap;
 }
 
+
 .social-link{
     border:1px solid #292929;
+
     padding:15px 25px;
+
     color:#fff;
+
     text-decoration:none;
+
     font-size:11px;
+
     letter-spacing:2px;
+
     transition:.3s;
 }
+
 
 .social-link:hover{
     background:#fff;
@@ -446,46 +601,361 @@ body{
 
 footer{
     padding:50px 8%;
+
     border-top:1px solid #151515;
+
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
 }
 
+
 .footer-right{
     display:flex;
+
     flex-direction:column;
+
     align-items:flex-end;
+
     gap:12px;
 }
 
+
 .footer-links{
     display:flex;
+
     gap:20px;
 }
 
+
 .footer-links a{
     color:#777;
+
     text-decoration:none;
+
     font-size:10px;
+
     letter-spacing:2px;
+
     transition:.3s;
 }
+
 
 .footer-links a:hover{
     color:#fff;
 }
 
+
 .footer-logo{
     font-family:'Cormorant Garamond',serif;
+
     font-size:28px;
+
     letter-spacing:3px;
 }
 
+
 footer p{
     color:#555;
+
     font-size:10px;
+
     letter-spacing:1px;
+}
+
+
+/* ================= VIDEO SWIPE FEED ================= */
+
+.video-feed{
+    position:fixed;
+
+    inset:0;
+
+    background:#000;
+
+    z-index:2000;
+
+    display:none;
+
+    overflow:hidden;
+}
+
+
+.video-feed.active{
+    display:block;
+}
+
+
+.video-feed-container{
+    height:100%;
+    width:100%;
+
+    overflow-y:auto;
+
+    scroll-snap-type:y mandatory;
+
+    scrollbar-width:none;
+
+    overscroll-behavior-y:contain;
+}
+
+
+.video-feed-container::-webkit-scrollbar{
+    display:none;
+}
+
+
+.video-slide{
+    position:relative;
+
+    height:100vh;
+    width:100%;
+
+    scroll-snap-align:start;
+    scroll-snap-stop:always;
+
+    background:#000;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+}
+
+
+/* ================= VIDEO PLAYER ================= */
+
+.video-player-box{
+    position:relative;
+
+    width:min(100vw,500px);
+    height:100vh;
+
+    background:#000;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    overflow:hidden;
+}
+
+
+.video-player-box iframe{
+    width:100%;
+    height:100%;
+
+    border:0;
+
+    display:block;
+}
+
+
+/* Transparent tap area */
+
+.video-tap-layer{
+    position:absolute;
+
+    inset:0;
+
+    z-index:20;
+
+    cursor:pointer;
+
+    background:transparent;
+}
+
+
+/* Pause indicator */
+
+.video-pause-indicator{
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    width:62px;
+    height:62px;
+
+    border-radius:50%;
+
+    background:rgba(0,0,0,.55);
+
+    border:1px solid rgba(255,255,255,.35);
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    color:#fff;
+
+    font-size:25px;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:.2s;
+
+    z-index:25;
+}
+
+
+.video-pause-indicator.show{
+    opacity:1;
+}
+
+
+.video-loading{
+    color:#555;
+
+    font-size:10px;
+
+    letter-spacing:3px;
+}
+
+
+/* ================= CLOSE BUTTON ================= */
+
+.video-feed-close{
+    position:absolute;
+
+    top:25px;
+    left:25px;
+
+    z-index:3000;
+
+    width:42px;
+    height:42px;
+
+    border:1px solid #444;
+
+    background:rgba(0,0,0,.65);
+
+    color:#fff;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    border-radius:50%;
+}
+
+
+/* ================= VIDEO INFO ================= */
+
+.video-info{
+    position:absolute;
+
+    left:20px;
+    bottom:35px;
+
+    z-index:2500;
+
+    max-width:60%;
+
+    text-align:left;
+
+    pointer-events:none;
+}
+
+
+.video-info h3{
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:30px;
+
+    margin-bottom:8px;
+}
+
+
+.video-info p{
+    color:#bbb;
+
+    font-size:12px;
+
+    line-height:1.6;
+}
+
+
+/* ================= WEBSITE ACTIONS ================= */
+
+.video-actions{
+    position:absolute;
+
+    right:20px;
+    bottom:35px;
+
+    z-index:3000;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:14px;
+}
+
+
+.video-action{
+    width:50px;
+    height:50px;
+
+    border:1px solid #444;
+
+    border-radius:50%;
+
+    background:rgba(0,0,0,.7);
+
+    color:#fff;
+
+    cursor:pointer;
+
+    font-size:21px;
+}
+
+
+.video-action span{
+    display:block;
+
+    font-size:8px;
+
+    margin-top:2px;
+
+    color:#aaa;
+}
+
+
+.video-action.active{
+    background:#fff;
+
+    color:#000;
+}
+
+
+/* ================= FEED LOADING ================= */
+
+.feed-loading{
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    color:#777;
+
+    font-size:11px;
+
+    letter-spacing:3px;
 }
 
 
@@ -495,241 +965,146 @@ footer p{
 
     .navbar{
         height:70px;
+
         padding:0 6%;
     }
 
+
     .nav-links{
         position:absolute;
+
         top:70px;
         left:0;
+
         width:100%;
+
         background:#080808;
+
         flex-direction:column;
+
         align-items:center;
+
         gap:25px;
+
         padding:30px;
+
         display:none;
+
         border-bottom:1px solid #222;
     }
+
 
     .nav-links.active{
         display:flex;
     }
 
+
     .menu{
         display:block;
     }
+
 
     .hero h1{
         font-size:70px;
     }
 
+
     .hero-buttons{
         flex-direction:column;
+
         align-items:center;
     }
+
 
     .cards{
         grid-template-columns:1fr;
     }
 
+
     .card{
         height:350px;
     }
+
 
     .section-header{
         display:block;
     }
 
+
     .section-sub{
         margin-top:10px;
     }
+
 
     .story{
         grid-template-columns:1fr;
     }
 
+
     .story-text{
         padding:80px 8%;
     }
+
 
     .story-text h2{
         font-size:55px;
     }
 
+
     footer{
         flex-direction:column;
+
         gap:15px;
+
         text-align:center;
     }
+
 
     .footer-right{
         align-items:center;
     }
 
+
     .video-switch{
         display:none;
     }
 
-}
+
+    .video-info{
+        left:15px;
+
+        bottom:25px;
+
+        max-width:65%;
+    }
 
 
-/* ================= VIDEO SWIPE FEED ================= */
+    .video-actions{
+        right:12px;
 
-.video-feed{
-    position:fixed;
-    inset:0;
-    background:#000;
-    z-index:2000;
-    display:none;
-    overflow:hidden;
-}
+        bottom:25px;
 
-.video-feed.active{
-    display:block;
-}
-
-.video-feed-container{
-    height:100%;
-    width:100%;
-    overflow-y:auto;
-    scroll-snap-type:y mandatory;
-    scrollbar-width:none;
-}
-
-.video-feed-container::-webkit-scrollbar{
-    display:none;
-}
-
-.video-slide{
-    position:relative;
-    height:100vh;
-    width:100%;
-    scroll-snap-align:start;
-    background:#000;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
+        gap:10px;
+    }
 
 
-/* ================= VIDEO PLAYER ================= */
+    .video-action{
+        width:46px;
+        height:46px;
 
-.video-player-box{
-    width:min(100vw,500px);
-    height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:#000;
-}
-
-.video-player-box iframe{
-    width:100%;
-    height:100%;
-    border:0;
-}
-
-.video-loading{
-    color:#555;
-    font-size:10px;
-    letter-spacing:3px;
-}
+        font-size:19px;
+    }
 
 
-/* ================= CLOSE BUTTON ================= */
+    .video-feed-close{
+        top:18px;
+        left:18px;
+    }
 
-.video-feed-close{
-    position:absolute;
-    top:25px;
-    left:25px;
-    z-index:3000;
-    width:42px;
-    height:42px;
-    border:1px solid #444;
-    background:rgba(0,0,0,.65);
-    color:#fff;
-    font-size:22px;
-    cursor:pointer;
-    border-radius:50%;
-}
-
-
-/* ================= VIDEO INFO ================= */
-
-.video-info{
-    position:absolute;
-    left:20px;
-    bottom:35px;
-    z-index:2500;
-    max-width:60%;
-    text-align:left;
-    pointer-events:none;
-}
-
-.video-info h3{
-    font-family:'Cormorant Garamond',serif;
-    font-size:30px;
-    margin-bottom:8px;
-}
-
-.video-info p{
-    color:#bbb;
-    font-size:12px;
-    line-height:1.6;
-}
-
-
-/* ================= VIDEO ACTIONS ================= */
-
-.video-actions{
-    position:absolute;
-    right:20px;
-    bottom:35px;
-    z-index:3000;
-    display:flex;
-    flex-direction:column;
-    gap:14px;
-}
-
-.video-action{
-    width:50px;
-    height:50px;
-    border:1px solid #444;
-    border-radius:50%;
-    background:rgba(0,0,0,.7);
-    color:#fff;
-    cursor:pointer;
-    font-size:21px;
-}
-
-.video-action span{
-    display:block;
-    font-size:8px;
-    margin-top:2px;
-    color:#aaa;
-}
-
-.video-action.active{
-    background:#fff;
-    color:#000;
-}
-
-
-/* ================= LOADING ================= */
-
-.feed-loading{
-    position:absolute;
-    inset:0;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:#777;
-    font-size:11px;
-    letter-spacing:3px;
 }
 
 </style>
+
 </head>
 
 
@@ -743,6 +1118,7 @@ footer p{
     <div class="logo">
         I FELT IT
     </div>
+
 
     <ul class="nav-links" id="navLinks">
 
@@ -764,9 +1140,11 @@ footer p{
 
     </ul>
 
+
     <div
         class="menu"
-        onclick="toggleMenu()">
+        onclick="toggleMenu()"
+    >
         ☰
     </div>
 
@@ -777,7 +1155,8 @@ footer p{
 
 <button
     class="video-switch"
-    onclick="openVideoFeed()">
+    onclick="openVideoFeed()"
+>
 
     <span class="video-switch-dot"></span>
 
@@ -790,7 +1169,8 @@ footer p{
 
 <section
     class="hero"
-    id="home">
+    id="home"
+>
 
     <div class="hero-content">
 
@@ -798,27 +1178,35 @@ footer p{
             WELCOME TO I FELT IT
         </div>
 
+
         <h1>
             I <span>FELT</span> IT
         </h1>
 
+
         <p class="hero-text">
+
             For the feelings we couldn't explain,
             the words we couldn't say,
             and the moments we never forgot.
+
         </p>
+
 
         <div class="hero-buttons">
 
             <a
                 href="#collections"
-                class="btn btn-main">
+                class="btn btn-main"
+            >
                 EXPLORE COLLECTIONS
             </a>
 
+
             <a
                 href="#story"
-                class="btn btn-outline">
+                class="btn btn-outline"
+            >
                 OUR STORY
             </a>
 
@@ -848,7 +1236,8 @@ footer p{
 
 <section
     class="section"
-    id="collections">
+    id="collections"
+>
 
     <div class="section-header">
 
@@ -858,11 +1247,13 @@ footer p{
                 DISCOVER
             </div>
 
+
             <h2 class="section-title">
                 Collections
             </h2>
 
         </div>
+
 
         <div class="section-sub">
             MADE FOR WHAT YOU FEEL
@@ -877,11 +1268,13 @@ footer p{
 
             <div class="card-bg"></div>
 
+
             <div class="card-content">
 
                 <small>
                     01
                 </small>
+
 
                 <h3>
                     Love
@@ -896,11 +1289,13 @@ footer p{
 
             <div class="card-bg"></div>
 
+
             <div class="card-content">
 
                 <small>
                     02
                 </small>
+
 
                 <h3>
                     Heartbreak
@@ -915,11 +1310,13 @@ footer p{
 
             <div class="card-bg"></div>
 
+
             <div class="card-content">
 
                 <small>
                     03
                 </small>
+
 
                 <h3>
                     Memories
@@ -938,9 +1335,11 @@ footer p{
 
 <section
     class="story"
-    id="story">
+    id="story"
+>
 
     <div class="story-image"></div>
+
 
     <div class="story-text">
 
@@ -948,22 +1347,30 @@ footer p{
             THE IDEA BEHIND THE NAME
         </div>
 
+
         <h2>
             You don't have to say it.
         </h2>
 
+
         <p>
+
             I Felt It was created for those moments when
             words aren't enough. Every feeling, every memory,
             every silent moment has a story behind it.
+
         </p>
+
 
         <br>
 
+
         <p>
+
             This is more than a brand.
             It's a place for people who simply...
             felt it.
+
         </p>
 
     </div>
@@ -975,44 +1382,57 @@ footer p{
 
 <section
     class="social"
-    id="social">
+    id="social"
+>
 
     <div class="section-sub">
         FOLLOW THE JOURNEY
     </div>
 
+
     <h2>
         Stay Connected.
     </h2>
 
+
     <p>
+
         More feelings, stories and moments are waiting
         on our social platforms.
+
     </p>
+
 
     <div class="social-links">
 
         <a
             href="https://www.tiktok.com/@_ifeltit?_r=1&_t=ZS-9ABPJ3h4Ip3"
-            class="social-link">
+            class="social-link"
+        >
             TIKTOK
         </a>
 
+
         <a
             href="https://www.facebook.com/share/1FD7dtcAHf/"
-            class="social-link">
+            class="social-link"
+        >
             FACEBOOK
         </a>
 
+
         <a
             href="https://youtube.com/@ifeltit-01?si=LcHR2MfGwP1M9UDn"
-            class="social-link">
+            class="social-link"
+        >
             YOUTUBE
         </a>
 
+
         <a
             href="https://wa.me/94720629784"
-            class="social-link">
+            class="social-link"
+        >
             WHATSAPP
         </a>
 
@@ -1029,6 +1449,7 @@ footer p{
         I FELT IT
     </div>
 
+
     <div class="footer-right">
 
         <div class="footer-links">
@@ -1037,11 +1458,13 @@ footer p{
                 TERMS
             </a>
 
+
             <a href="privacy.html">
                 PRIVACY
             </a>
 
         </div>
+
 
         <p>
             © 2026 I FELT IT — ALL RIGHTS RESERVED
@@ -1056,21 +1479,26 @@ footer p{
 
 <div
     class="video-feed"
-    id="videoFeed">
+    id="videoFeed"
+>
 
     <button
         class="video-feed-close"
-        onclick="closeVideoFeed()">
+        onclick="closeVideoFeed()"
+    >
         ×
     </button>
 
+
     <div
         class="video-feed-container"
-        id="videoFeedContainer">
+        id="videoFeedContainer"
+    >
 
         <div
             class="feed-loading"
-            id="feedLoading">
+            id="feedLoading"
+        >
             LOADING...
         </div>
 
@@ -1082,6 +1510,7 @@ footer p{
 <!-- ================= JAVASCRIPT ================= -->
 
 <script>
+
 
 /* ================= MENU ================= */
 
@@ -1099,56 +1528,102 @@ function toggleMenu(){
 const TIKTOK_API =
     "https://i-felt-it-mth7.vercel.app/api/tiktok/videos";
 
+
 let videos = [];
 
 let feedLoaded = false;
 
-let currentVideoIndex = 0;
+let currentVideoIndex = -1;
 
-let currentIframe = null;
+let feedOpening = false;
 
 
 /* ================= LOAD VIDEOS ================= */
 
 async function loadTikTokVideos(){
 
+    if(feedOpening === false){
+        return;
+    }
+
+
     try{
 
         const response =
             await fetch(TIKTOK_API);
 
+
         if(!response.ok){
-            throw new Error("API Error");
+
+            throw new Error(
+                "API Error"
+            );
+
         }
+
 
         const result =
             await response.json();
 
+
         videos =
             result?.data?.videos || [];
 
+
         if(videos.length === 0){
 
-            document.getElementById(
-                "feedLoading"
-            ).textContent =
-                "NO VIDEOS FOUND";
+            const loading =
+                document.getElementById(
+                    "feedLoading"
+                );
+
+
+            if(loading){
+
+                loading.textContent =
+                    "NO VIDEOS FOUND";
+
+            }
 
             return;
 
         }
 
+
         buildVideoFeed();
+
+
+        /*
+         * After the feed is built,
+         * load ONLY the first video.
+         */
+
+        if(currentVideoIndex === -1){
+
+            currentVideoIndex = 0;
+
+            loadVideoAt(0);
+
+        }
 
     }
     catch(error){
 
         console.error(error);
 
-        document.getElementById(
-            "feedLoading"
-        ).textContent =
-            "COULD NOT LOAD VIDEOS";
+
+        const loading =
+            document.getElementById(
+                "feedLoading"
+            );
+
+
+        if(loading){
+
+            loading.textContent =
+                "COULD NOT LOAD VIDEOS";
+
+        }
 
     }
 
@@ -1159,162 +1634,213 @@ async function loadTikTokVideos(){
 
 function buildVideoFeed(){
 
-    if(feedLoaded) return;
+    if(feedLoaded){
+        return;
+    }
+
 
     const container =
         document.getElementById(
             "videoFeedContainer"
         );
 
+
     const loading =
         document.getElementById(
             "feedLoading"
         );
 
+
     if(loading){
+
         loading.remove();
+
     }
 
 
-    videos.forEach(function(video,index){
+    videos.forEach(
+        function(video,index){
 
-        const slide =
-            document.createElement("div");
-
-        slide.className =
-            "video-slide";
-
-        slide.dataset.index =
-            index;
+            const slide =
+                document.createElement(
+                    "div"
+                );
 
 
-        /* ================= VIDEO ================= */
-
-        const playerBox =
-            document.createElement("div");
-
-        playerBox.className =
-            "video-player-box";
-
-        playerBox.dataset.videoId =
-            video.id;
-
-        playerBox.dataset.loaded =
-            "false";
-
-        playerBox.innerHTML = `
-            <div class="video-loading">
-                TAP TO LOAD
-            </div>
-        `;
-
-        slide.appendChild(playerBox);
+            slide.className =
+                "video-slide";
 
 
-        /* ================= INFO ================= */
-
-        const info =
-            document.createElement("div");
-
-        info.className =
-            "video-info";
-
-        const title =
-            document.createElement("h3");
-
-        title.textContent =
-            "I FELT IT";
-
-        const caption =
-            document.createElement("p");
-
-        caption.textContent =
-            video.video_description ||
-            video.title ||
-            "";
-
-        info.appendChild(title);
-
-        info.appendChild(caption);
-
-        slide.appendChild(info);
+            slide.dataset.index =
+                index;
 
 
-        /* ================= ACTIONS ================= */
+            /* ================= PLAYER BOX ================= */
 
-        const actions =
-            document.createElement("div");
+            const playerBox =
+                document.createElement(
+                    "div"
+                );
 
-        actions.className =
-            "video-actions";
 
-        actions.innerHTML = `
+            playerBox.className =
+                "video-player-box";
 
-            <button
-                class="video-action"
-                onclick="toggleWebsiteLike(this)">
 
-                ♡
+            playerBox.dataset.videoId =
+                video.id;
 
-                <span>
-                    LIKE
-                </span>
 
-            </button>
+            playerBox.dataset.loaded =
+                "false";
 
-            <button
-                class="video-action"
-                onclick="websiteComment()">
 
-                💬
+            playerBox.innerHTML = `
+                <div class="video-loading">
+                    LOADING...
+                </div>
+            `;
 
-                <span>
-                    COMMENT
-                </span>
 
-            </button>
+            slide.appendChild(
+                playerBox
+            );
 
-            <button
-                class="video-action"
-                onclick="websiteShare(${index})">
 
-                ↗
+            /* ================= INFO ================= */
 
-                <span>
-                    SHARE
-                </span>
+            const info =
+                document.createElement(
+                    "div"
+                );
 
-            </button>
 
-            <button
-                class="video-action"
-                onclick="toggleFavorite(this)">
+            info.className =
+                "video-info";
 
-                ☆
 
-                <span>
-                    SAVE
-                </span>
+            const title =
+                document.createElement(
+                    "h3"
+                );
 
-            </button>
 
-        `;
+            title.textContent =
+                "I FELT IT";
 
-        slide.appendChild(actions);
 
-        container.appendChild(slide);
+            const caption =
+                document.createElement(
+                    "p"
+                );
 
-    });
+
+            caption.textContent =
+                video.video_description ||
+                video.title ||
+                "";
+
+
+            info.appendChild(title);
+
+            info.appendChild(caption);
+
+
+            slide.appendChild(info);
+
+
+            /* ================= WEBSITE ACTIONS ================= */
+
+            const actions =
+                document.createElement(
+                    "div"
+                );
+
+
+            actions.className =
+                "video-actions";
+
+
+            actions.innerHTML = `
+
+                <button
+                    class="video-action"
+                    onclick="toggleWebsiteLike(this,event)"
+                >
+
+                    ♡
+
+                    <span>
+                        LIKE
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="video-action"
+                    onclick="websiteComment(event)"
+                >
+
+                    💬
+
+                    <span>
+                        COMMENT
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="video-action"
+                    onclick="websiteShare(${index},event)"
+                >
+
+                    ↗
+
+                    <span>
+                        SHARE
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="video-action"
+                    onclick="toggleFavorite(this,event)"
+                >
+
+                    ☆
+
+                    <span>
+                        SAVE
+                    </span>
+
+                </button>
+
+            `;
+
+
+            slide.appendChild(actions);
+
+
+            container.appendChild(
+                slide
+            );
+
+        }
+    );
 
 
     feedLoaded = true;
+
 
     startVideoObserver();
 
 }
 
 
-/* ================= LOAD ONE VIDEO ================= */
+/* ================= CREATE TIKTOK PLAYER ================= */
 
 function loadVideoAt(index){
 
@@ -1323,34 +1849,64 @@ function loadVideoAt(index){
             `.video-slide[data-index="${index}"]`
         );
 
-    if(!slide) return;
+
+    if(!slide){
+        return;
+    }
+
 
     const box =
         slide.querySelector(
             ".video-player-box"
         );
 
-    if(!box) return;
 
-    if(box.dataset.loaded === "true"){
+    if(!box){
         return;
     }
+
+
+    if(
+        box.dataset.loaded === "true"
+    ){
+
+        return;
+
+    }
+
 
     const video =
         videos[index];
 
-    if(!video || !video.id){
+
+    if(
+        !video ||
+        !video.id
+    ){
+
         return;
+
     }
 
+
     const iframe =
-        document.createElement("iframe");
+        document.createElement(
+            "iframe"
+        );
+
+
+    /*
+     * TikTok official Embed Player.
+     *
+     * controls=0 hides TikTok's
+     * playback controls.
+     */
 
     iframe.src =
         "https://www.tiktok.com/player/v1/" +
         video.id +
         "?controls=0" +
-        "&progress_bar=1" +
+        "&progress_bar=0" +
         "&play_button=0" +
         "&volume_control=0" +
         "&fullscreen_button=0" +
@@ -1358,161 +1914,445 @@ function loadVideoAt(index){
         "&description=0" +
         "&music_info=0" +
         "&autoplay=1" +
-        "&muted=0";
+        "&muted=0" +
+        "&rel=0";
+
 
     iframe.allow =
         "autoplay; fullscreen";
+
 
     iframe.setAttribute(
         "allowfullscreen",
         ""
     );
 
+
     iframe.loading =
         "eager";
+
 
     iframe.style.width =
         "100%";
 
+
     iframe.style.height =
         "100%";
+
 
     iframe.style.border =
         "0";
 
+
+    iframe.dataset.playing =
+        "false";
+
+
+    iframe.dataset.ready =
+        "false";
+
+
     box.innerHTML = "";
 
-    box.appendChild(iframe);
 
-    box.addEventListener(
-    "click",
-    function(){
+    box.appendChild(
+        iframe
+    );
 
-        toggleVideoPlay(index);
-
-    }
-);
 
     box.dataset.loaded =
         "true";
+
+
+    /*
+     * Our own tap layer.
+     */
+
+    const tapLayer =
+        document.createElement(
+            "div"
+        );
+
+
+    tapLayer.className =
+        "video-tap-layer";
+
+
+    tapLayer.addEventListener(
+        "click",
+        function(event){
+
+            event.preventDefault();
+
+            event.stopPropagation();
+
+            toggleVideoPlay(index);
+
+        }
+    );
+
+
+    box.appendChild(
+        tapLayer
+    );
+
+
+    /*
+     * Pause indicator.
+     */
+
+    const pauseIndicator =
+        document.createElement(
+            "div"
+        );
+
+
+    pauseIndicator.className =
+        "video-pause-indicator";
+
+
+    pauseIndicator.innerHTML =
+        "Ⅱ";
+
+
+    box.appendChild(
+        pauseIndicator
+    );
+
+
+    /*
+     * Wait for TikTok player ready.
+     */
 
     iframe.addEventListener(
         "load",
         function(){
 
             /*
-             * Give TikTok player a moment
-             * to become ready.
+             * Ask the player to start.
              */
 
-            setTimeout(function(){
+            setTimeout(
+                function(){
 
-                iframe.contentWindow.postMessage({
+                    if(
+                        currentVideoIndex === index
+                    ){
 
-                    "x-tiktok-player": true,
-
-                    type: "unMute",
-
-                    value: null
-
-                }, "*");
+                        sendPlayerCommand(
+                            iframe,
+                            "unMute"
+                        );
 
 
-                iframe.contentWindow.postMessage({
+                        sendPlayerCommand(
+                            iframe,
+                            "play"
+                        );
 
-                    "x-tiktok-player": true,
+                    }
 
-                    type: "play",
-
-                    value: null
-
-                }, "*");
-
-            }, 500);
+                },
+                250
+            );
 
         }
     );
 
 }
 
-    function toggleVideoPlay(index){
+
+/* ================= SEND PLAYER COMMAND ================= */
+
+function sendPlayerCommand(
+    iframe,
+    type,
+    value = null
+){
+
+    if(
+        !iframe ||
+        !iframe.contentWindow
+    ){
+
+        return;
+
+    }
+
+
+    iframe.contentWindow.postMessage(
+
+        {
+            "x-tiktok-player": true,
+
+            type: type,
+
+            value: value
+        },
+
+        "*"
+
+    );
+
+}
+
+
+/* ================= GET CURRENT IFRAME ================= */
+
+function getIframeAt(index){
 
     const slide =
         document.querySelector(
             `.video-slide[data-index="${index}"]`
         );
 
-    if(!slide) return;
+
+    if(!slide){
+        return null;
+    }
+
+
+    return slide.querySelector(
+        ".video-player-box iframe"
+    );
+
+}
+
+
+/* ================= PLAY CURRENT VIDEO ================= */
+
+function playCurrentVideo(
+    index
+){
 
     const iframe =
-        slide.querySelector(
-            ".video-player-box iframe"
+        getIframeAt(index);
+
+
+    if(!iframe){
+        return;
+    }
+
+
+    /*
+     * Current video:
+     * sound ON + play.
+     */
+
+    sendPlayerCommand(
+        iframe,
+        "unMute"
+    );
+
+
+    sendPlayerCommand(
+        iframe,
+        "play"
+    );
+
+
+    iframe.dataset.playing =
+        "true";
+
+
+    const indicator =
+        iframe.parentElement.querySelector(
+            ".video-pause-indicator"
         );
 
-    if(!iframe) return;
+
+    if(indicator){
+
+        indicator.classList.remove(
+            "show"
+        );
+
+    }
+
+}
 
 
-    const player =
-        iframe.contentWindow;
+/* ================= STOP PREVIOUS VIDEO ================= */
 
+function stopVideo(
+    index
+){
+
+    const iframe =
+        getIframeAt(index);
+
+
+    if(!iframe){
+        return;
+    }
+
+
+    /*
+     * Stop it.
+     */
+
+    sendPlayerCommand(
+        iframe,
+        "pause"
+    );
+
+
+    /*
+     * Mute it.
+     */
+
+    sendPlayerCommand(
+        iframe,
+        "mute"
+    );
+
+
+    /*
+     * Reset to beginning.
+     */
+
+    sendPlayerCommand(
+        iframe,
+        "seekTo",
+        0
+    );
+
+
+    iframe.dataset.playing =
+        "false";
+
+
+    const indicator =
+        iframe.parentElement.querySelector(
+            ".video-pause-indicator"
+        );
+
+
+    if(indicator){
+
+        indicator.classList.remove(
+            "show"
+        );
+
+    }
+
+}
+
+
+/* ================= TAP PLAY / PAUSE ================= */
+
+function toggleVideoPlay(
+    index
+){
+
+    /*
+     * Make sure this is
+     * the current video.
+     */
 
     if(
-        iframe.dataset.playing === "true"
+        index !== currentVideoIndex
     ){
 
-        player.postMessage({
+        return;
 
-            "x-tiktok-player": true,
+    }
 
-            type: "pause",
 
-            value: null
+    const iframe =
+        getIframeAt(index);
 
-        }, "*");
+
+    if(!iframe){
+        return;
+    }
+
+
+    const isPlaying =
+        iframe.dataset.playing === "true";
+
+
+    const indicator =
+        iframe.parentElement.querySelector(
+            ".video-pause-indicator"
+        );
+
+
+    if(isPlaying){
+
+        sendPlayerCommand(
+            iframe,
+            "pause"
+        );
+
 
         iframe.dataset.playing =
             "false";
 
+
+        if(indicator){
+
+            indicator.textContent =
+                "▶";
+
+            indicator.classList.add(
+                "show"
+            );
+
+        }
+
     }
     else{
 
-        player.postMessage({
+        /*
+         * User tapped,
+         * so sound can be enabled.
+         */
 
-            "x-tiktok-player": true,
+        sendPlayerCommand(
+            iframe,
+            "unMute"
+        );
 
-            type: "unMute",
 
-            value: null
+        sendPlayerCommand(
+            iframe,
+            "play"
+        );
 
-        }, "*");
-
-        player.postMessage({
-
-            "x-tiktok-player": true,
-
-            type: "play",
-
-            value: null
-
-        }, "*");
 
         iframe.dataset.playing =
             "true";
 
+
+        if(indicator){
+
+            indicator.classList.remove(
+                "show"
+            );
+
+        }
+
     }
 
 }
 
-/* ================= RESET VIDEO ================= */
 
-function resetVideoAt(index){
+/* ================= REMOVE VIDEO ================= */
+
+function unloadVideoAt(
+    index
+){
 
     const slide =
         document.querySelector(
             `.video-slide[data-index="${index}"]`
         );
 
-    if(!slide) return;
+
+    if(!slide){
+        return;
+    }
 
 
     const box =
@@ -1520,21 +2360,34 @@ function resetVideoAt(index){
             ".video-player-box"
         );
 
-    if(!box) return;
+
+    if(!box){
+        return;
+    }
 
 
     /*
-       Remove the old iframe completely.
+     * Only unload videos that
+     * are not the current video.
+     */
 
-       When this video is opened again,
-       a fresh iframe starts from the beginning.
-    */
+    if(
+        index === currentVideoIndex
+    ){
+
+        return;
+
+    }
+
 
     box.innerHTML = `
+
         <div class="video-loading">
             LOADING...
         </div>
+
     `;
+
 
     box.dataset.loaded =
         "false";
@@ -1542,34 +2395,126 @@ function resetVideoAt(index){
 }
 
 
-/* ================= UNLOAD FAR VIDEO ================= */
+/* ================= CHANGE CURRENT VIDEO ================= */
 
-function unloadVideoAt(index){
+function activateVideo(
+    newIndex
+){
 
-    const slide =
-        document.querySelector(
-            `.video-slide[data-index="${index}"]`
+    if(
+        newIndex < 0 ||
+        newIndex >= videos.length
+    ){
+
+        return;
+
+    }
+
+
+    /*
+     * Nothing to do if already current.
+     */
+
+    if(
+        currentVideoIndex === newIndex
+    ){
+
+        const currentIframe =
+            getIframeAt(newIndex);
+
+
+        if(currentIframe){
+
+            playCurrentVideo(
+                newIndex
+            );
+
+        }
+
+        return;
+
+    }
+
+
+    /*
+     * Stop previous video.
+     */
+
+    if(
+        currentVideoIndex >= 0
+    ){
+
+        stopVideo(
+            currentVideoIndex
         );
 
-    if(!slide) return;
+    }
 
 
-    const box =
-        slide.querySelector(
-            ".video-player-box"
-        );
+    /*
+     * Change index.
+     */
 
-    if(!box) return;
+    currentVideoIndex =
+        newIndex;
 
 
-    box.innerHTML = `
-        <div class="video-loading">
-            LOADING...
-        </div>
-    `;
+    /*
+     * Load only current video.
+     */
 
-    box.dataset.loaded =
-        "false";
+    loadVideoAt(
+        newIndex
+    );
+
+
+    /*
+     * Wait for iframe if it
+     * was just created.
+     */
+
+    setTimeout(
+        function(){
+
+            if(
+                currentVideoIndex === newIndex
+            ){
+
+                playCurrentVideo(
+                    newIndex
+                );
+
+            }
+
+        },
+        300
+    );
+
+
+    /*
+     * Remove old videos that
+     * are far away.
+     *
+     * This reduces memory usage.
+     */
+
+    videos.forEach(
+        function(video,index){
+
+            if(
+                Math.abs(
+                    index - newIndex
+                ) > 1
+            ){
+
+                unloadVideoAt(
+                    index
+                );
+
+            }
+
+        }
+    );
 
 }
 
@@ -1581,72 +2526,71 @@ const videoObserver =
 
         function(entries){
 
-            entries.forEach(function(entry){
-
-                if(!entry.isIntersecting){
-                    return;
-                }
+            let bestEntry =
+                null;
 
 
-                const slide =
-                    entry.target;
+            /*
+             * Find the slide that is
+             * most visible.
+             */
 
-                const index =
-                    Number(
-                        slide.dataset.index
-                    );
+            entries.forEach(
+                function(entry){
 
+                    if(
+                        !entry.isIntersecting
+                    ){
 
-                /* ================= PREVIOUS VIDEO ================= */
-
-                if(
-                    currentVideoIndex !== index
-                ){
-
-                    resetVideoAt(
-                        currentVideoIndex
-                    );
-
-                }
-
-
-                /* ================= CURRENT ================= */
-
-                currentVideoIndex =
-                    index;
-
-
-                loadVideoAt(index);
-
-
-                /* ================= NEXT ONLY ================= */
-
-                if(videos[index + 1]){
-
-                    loadVideoAt(
-                        index + 1
-                    );
-
-                }
-
-
-                /* ================= UNLOAD FAR VIDEOS ================= */
-
-                videos.forEach(
-                    function(video,i){
-
-                        if(
-                            Math.abs(i-index) > 1
-                        ){
-
-                            unloadVideoAt(i);
-
-                        }
+                        return;
 
                     }
+
+
+                    if(
+                        !bestEntry ||
+                        entry.intersectionRatio >
+                        bestEntry.intersectionRatio
+                    ){
+
+                        bestEntry =
+                            entry;
+
+                    }
+
+                }
+            );
+
+
+            if(!bestEntry){
+                return;
+            }
+
+
+            const slide =
+                bestEntry.target;
+
+
+            const index =
+                Number(
+                    slide.dataset.index
                 );
 
-            });
+
+            /*
+             * Only activate when
+             * 65%+ visible.
+             */
+
+            if(
+                bestEntry.intersectionRatio >= .65
+            ){
+
+                activateVideo(
+                    index
+                );
+
+            }
 
         },
 
@@ -1656,7 +2600,11 @@ const videoObserver =
                     "videoFeedContainer"
                 ),
 
-            threshold:0.65
+            threshold:[
+                .65,
+                .8,
+                1
+            ]
 
         }
 
@@ -1672,20 +2620,23 @@ function startVideoObserver(){
             ".video-slide"
         );
 
-    slides.forEach(function(slide){
 
-        videoObserver.observe(
-            slide
-        );
+    slides.forEach(
+        function(slide){
 
-    });
+            videoObserver.observe(
+                slide
+            );
+
+        }
+    );
 
 }
 
 
 /* ================= OPEN FEED ================= */
 
-function openVideoFeed(){
+async function openVideoFeed(){
 
     const feed =
         document.getElementById(
@@ -1693,29 +2644,75 @@ function openVideoFeed(){
         );
 
 
-    feed.classList.add("active");
+    feed.classList.add(
+        "active"
+    );
 
 
     document.body.style.overflow =
         "hidden";
 
 
+    feedOpening = true;
+
+
+    /*
+     * First opening:
+     * get videos from API.
+     */
+
     if(!feedLoaded){
 
-        loadTikTokVideos();
+        await loadTikTokVideos();
+
+        return;
 
     }
-    else{
 
-        resetVideoAt(
-            currentVideoIndex
+
+    /*
+     * Re-opening:
+     * restart current video
+     * from the beginning.
+     */
+
+    const container =
+        document.getElementById(
+            "videoFeedContainer"
         );
 
-        loadVideoAt(
-            currentVideoIndex
-        );
 
-    }
+    container.scrollTo({
+
+        top:
+            currentVideoIndex *
+            window.innerHeight,
+
+        behavior:"instant"
+
+    });
+
+
+    stopVideo(
+        currentVideoIndex
+    );
+
+
+    loadVideoAt(
+        currentVideoIndex
+    );
+
+
+    setTimeout(
+        function(){
+
+            playCurrentVideo(
+                currentVideoIndex
+            );
+
+        },
+        300
+    );
 
 }
 
@@ -1730,28 +2727,50 @@ function closeVideoFeed(){
         );
 
 
-    feed.classList.remove("active");
+    /*
+     * Stop current video.
+     */
+
+    if(
+        currentVideoIndex >= 0
+    ){
+
+        stopVideo(
+            currentVideoIndex
+        );
+
+    }
+
+
+    feed.classList.remove(
+        "active"
+    );
 
 
     document.body.style.overflow =
         "";
 
 
-    /*
-       Stop the current video by
-       removing its iframe.
-    */
-
-    resetVideoAt(
-        currentVideoIndex
-    );
+    feedOpening = false;
 
 }
 
 
 /* ================= WEBSITE LIKE ================= */
 
-function toggleWebsiteLike(button){
+function toggleWebsiteLike(
+    button,
+    event
+){
+
+    if(event){
+
+        event.preventDefault();
+
+        event.stopPropagation();
+
+    }
+
 
     button.classList.toggle(
         "active"
@@ -1778,9 +2797,21 @@ function toggleWebsiteLike(button){
 }
 
 
-/* ================= FAVORITE ================= */
+/* ================= WEBSITE FAVORITE ================= */
 
-function toggleFavorite(button){
+function toggleFavorite(
+    button,
+    event
+){
+
+    if(event){
+
+        event.preventDefault();
+
+        event.stopPropagation();
+
+    }
+
 
     button.classList.toggle(
         "active"
@@ -1807,17 +2838,33 @@ function toggleFavorite(button){
 }
 
 
-/* ================= SHARE ================= */
+/* ================= WEBSITE SHARE ================= */
 
-async function websiteShare(index){
+async function websiteShare(
+    index,
+    event
+){
 
-    const video =
-        videos[index];
+    if(event){
+
+        event.preventDefault();
+
+        event.stopPropagation();
+
+    }
+
+
+    /*
+     * TikTok API's video/list response
+     * does not necessarily contain a
+     * share_url field.
+     *
+     * So use the current website URL
+     * as the site share link.
+     */
 
     const shareUrl =
-        video && video.share_url
-            ? video.share_url
-            : window.location.href;
+        window.location.href;
 
 
     try{
@@ -1825,6 +2872,7 @@ async function websiteShare(index){
         await navigator.clipboard.writeText(
             shareUrl
         );
+
 
         alert(
             "Link copied!"
@@ -1843,9 +2891,20 @@ async function websiteShare(index){
 }
 
 
-/* ================= COMMENT ================= */
+/* ================= WEBSITE COMMENT ================= */
 
-function websiteComment(){
+function websiteComment(
+    event
+){
+
+    if(event){
+
+        event.preventDefault();
+
+        event.stopPropagation();
+
+    }
+
 
     const comment =
         prompt(
@@ -1884,8 +2943,19 @@ home.addEventListener(
     "touchstart",
     function(e){
 
+        if(
+            !e.touches ||
+            !e.touches[0]
+        ){
+
+            return;
+
+        }
+
+
         touchStartX =
             e.touches[0].clientX;
+
 
         touchStartY =
             e.touches[0].clientY;
@@ -1901,8 +2971,19 @@ home.addEventListener(
     "touchend",
     function(e){
 
+        if(
+            !e.changedTouches ||
+            !e.changedTouches[0]
+        ){
+
+            return;
+
+        }
+
+
         const touchEndX =
             e.changedTouches[0].clientX;
+
 
         const touchEndY =
             e.changedTouches[0].clientY;
@@ -1912,10 +2993,15 @@ home.addEventListener(
             touchEndX -
             touchStartX;
 
+
         const diffY =
             touchEndY -
             touchStartY;
 
+
+        /*
+         * Right swipe only.
+         */
 
         if(
             diffX > 80 &&
@@ -1927,16 +3013,235 @@ home.addEventListener(
 
         }
 
+    },
+    {
+        passive:true
     }
 );
 
 
-/* ================= START ================= */
+/* ================= PLAYER EVENTS ================= */
 
-loadTikTokVideos();
+/*
+ * TikTok sends player events
+ * through postMessage.
+ *
+ * We listen for:
+ *
+ * onPlayerReady
+ * onStateChange
+ * onMute
+ * onPlayerError
+ */
+
+window.addEventListener(
+    "message",
+    function(event){
+
+        const data =
+            event.data;
+
+
+        if(
+            !data ||
+            data["x-tiktok-player"] !== true
+        ){
+
+            return;
+
+        }
+
+
+        /*
+         * Find iframe that sent
+         * this message.
+         */
+
+        const iframes =
+            document.querySelectorAll(
+                ".video-player-box iframe"
+            );
+
+
+        let iframe =
+            null;
+
+
+        iframes.forEach(
+            function(item){
+
+                if(
+                    item.contentWindow ===
+                    event.source
+                ){
+
+                    iframe =
+                        item;
+
+                }
+
+            }
+        );
+
+
+        if(!iframe){
+            return;
+        }
+
+
+        const slide =
+            iframe.closest(
+                ".video-slide"
+            );
+
+
+        if(!slide){
+            return;
+        }
+
+
+        const index =
+            Number(
+                slide.dataset.index
+            );
+
+
+        /* ================= PLAYER READY ================= */
+
+        if(
+            data.type ===
+            "onPlayerReady"
+        ){
+
+            iframe.dataset.ready =
+                "true";
+
+
+            /*
+             * Only current video
+             * should start.
+             */
+
+            if(
+                index ===
+                currentVideoIndex
+            ){
+
+                playCurrentVideo(
+                    index
+                );
+
+            }
+
+        }
+
+
+        /* ================= STATE CHANGE ================= */
+
+        if(
+            data.type ===
+            "onStateChange"
+        ){
+
+            /*
+             * 0 = ended
+             * 1 = playing
+             * 2 = paused
+             * 3 = buffering
+             */
+
+            const state =
+                Number(
+                    data.value
+                );
+
+
+            if(state === 1){
+
+                iframe.dataset.playing =
+                    "true";
+
+            }
+
+
+            if(state === 2){
+
+                iframe.dataset.playing =
+                    "false";
+
+            }
+
+
+            /*
+             * If a non-current video
+             * somehow starts, stop it.
+             */
+
+            if(
+                state === 1 &&
+                index !== currentVideoIndex
+            ){
+
+                stopVideo(
+                    index
+                );
+
+            }
+
+        }
+
+
+        /* ================= MUTE EVENT ================= */
+
+        if(
+            data.type ===
+            "onMute"
+        ){
+
+            /*
+             * Nothing else needed here.
+             * This event confirms the
+             * player mute state.
+             */
+
+        }
+
+
+        /* ================= PLAYER ERROR ================= */
+
+        if(
+            data.type ===
+            "onPlayerError"
+        ){
+
+            console.warn(
+                "TikTok Player Error:",
+                data.value
+            );
+
+        }
+
+    }
+);
+
+
+/* ================= CLEAN PAGE LOAD ================= */
+
+/*
+ * IMPORTANT:
+ *
+ * Do NOT load TikTok API when
+ * the home page first opens.
+ *
+ * It only loads after the user
+ * opens the video feed.
+ */
+
+feedOpening = false;
 
 </script>
 
 
 </body>
+
 </html>
