@@ -1384,6 +1384,15 @@ function loadVideoAt(index){
 
     box.appendChild(iframe);
 
+    box.addEventListener(
+    "click",
+    function(){
+
+        toggleVideoPlay(index);
+
+    }
+);
+
     box.dataset.loaded =
         "true";
 
@@ -1423,6 +1432,74 @@ function loadVideoAt(index){
 
         }
     );
+
+}
+
+    function toggleVideoPlay(index){
+
+    const slide =
+        document.querySelector(
+            `.video-slide[data-index="${index}"]`
+        );
+
+    if(!slide) return;
+
+    const iframe =
+        slide.querySelector(
+            ".video-player-box iframe"
+        );
+
+    if(!iframe) return;
+
+
+    const player =
+        iframe.contentWindow;
+
+
+    if(
+        iframe.dataset.playing === "true"
+    ){
+
+        player.postMessage({
+
+            "x-tiktok-player": true,
+
+            type: "pause",
+
+            value: null
+
+        }, "*");
+
+        iframe.dataset.playing =
+            "false";
+
+    }
+    else{
+
+        player.postMessage({
+
+            "x-tiktok-player": true,
+
+            type: "unMute",
+
+            value: null
+
+        }, "*");
+
+        player.postMessage({
+
+            "x-tiktok-player": true,
+
+            type: "play",
+
+            value: null
+
+        }, "*");
+
+        iframe.dataset.playing =
+            "true";
+
+    }
 
 }
 
