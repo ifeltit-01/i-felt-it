@@ -413,7 +413,7 @@ footer{
 .footer-links a:hover{
     color:#fff;
 }
-    
+
 .footer-logo{
     font-family:'Cormorant Garamond',serif;
     font-size:28px;
@@ -500,7 +500,7 @@ footer p{
         text-align:center;
     }
 
-  .footer-right{
+    .footer-right{
         align-items:center;
     }
 }
@@ -555,7 +555,7 @@ footer p{
     text-align:left;
 }
 
-    /* ================= VIDEO SWIPE FEED ================= */
+/* ================= VIDEO SWIPE FEED ================= */
 
 .video-feed{
     position:fixed;
@@ -678,7 +678,7 @@ footer p{
     font-size:10px;
     letter-spacing:2px;
 }
-    
+
 </style>
 </head>
 
@@ -871,10 +871,10 @@ footer p{
 
         <a href="https://wa.me/94720629784" class="social-link">WHATSAPP</a>
 
-
-   </div>
+    </div>
 
 </section>
+
 
 <!-- TIKTOK FEED -->
 
@@ -887,9 +887,11 @@ footer p{
     <h2 class="tiktok-title">Feel It.</h2>
 
     <div id="tiktok-feed">
+
         <div class="tiktok-loading">
             LOADING...
         </div>
+
     </div>
 
 </section>
@@ -899,7 +901,7 @@ footer p{
 
 <footer>
 
-       <div class="footer-logo">
+    <div class="footer-logo">
         I FELT IT
     </div>
 
@@ -915,8 +917,26 @@ footer p{
         </p>
 
     </div>
-    
+
 </footer>
+
+
+<!-- ================= VIDEO FEED ================= -->
+
+<div class="video-feed" id="videoFeed">
+
+    <button
+        class="video-feed-close"
+        onclick="closeVideoFeed()">
+        ×
+    </button>
+
+    <div
+        class="video-feed-container"
+        id="videoFeedContainer">
+    </div>
+
+</div>
 
 
 <script>
@@ -934,6 +954,7 @@ function toggleMenu(){
 
 const TIKTOK_API =
     "https://i-felt-it-mth7.vercel.app/api/tiktok/videos";
+
 
 async function loadTikTokVideos(){
 
@@ -983,11 +1004,14 @@ async function loadTikTokVideos(){
             player.className =
                 "tiktok-player";
 
-            player.src = player.src = video.embed_link;
 
-                
+            player.src =
+                video.embed_link;
+
+
             player.allow =
                 "autoplay; fullscreen";
+
 
             player.setAttribute(
                 "allowfullscreen",
@@ -1000,6 +1024,7 @@ async function loadTikTokVideos(){
 
             caption.className =
                 "tiktok-caption";
+
 
             caption.textContent =
                 video.video_description ||
@@ -1028,15 +1053,15 @@ async function loadTikTokVideos(){
 }
 
 
-/* ================= START ================= */
+/* ================= VIDEO SWIPE FEED ================= */
 
-loadTikTokVideos();
+let videoFeedBuilt = false;
 
-    /* ================= SWIPE VIDEO FEED ================= */
 
 function openVideoFeed(){
 
-    const feed = document.getElementById("videoFeed");
+    const feed =
+        document.getElementById("videoFeed");
 
     feed.classList.add("active");
 
@@ -1049,7 +1074,8 @@ function openVideoFeed(){
 
 function closeVideoFeed(){
 
-    const feed = document.getElementById("videoFeed");
+    const feed =
+        document.getElementById("videoFeed");
 
     feed.classList.remove("active");
 
@@ -1058,40 +1084,50 @@ function closeVideoFeed(){
 }
 
 
-let videoFeedBuilt = false;
-
-
 function buildVideoFeed(){
 
     if(videoFeedBuilt) return;
 
+
     const container =
         document.getElementById("videoFeedContainer");
 
+
     const items =
         document.querySelectorAll(".tiktok-item");
+
 
     items.forEach((item,index)=>{
 
         const iframe =
             item.querySelector("iframe");
 
+
         const caption =
             item.querySelector(".tiktok-caption");
+
+
+        if(!iframe) return;
+
 
         const slide =
             document.createElement("div");
 
-        slide.className = "video-slide";
+        slide.className =
+            "video-slide";
 
 
         const newIframe =
             document.createElement("iframe");
 
-        newIframe.src = iframe.src;
+
+        newIframe.src =
+            iframe.src;
+
 
         newIframe.allow =
             "autoplay; fullscreen";
+
 
         newIframe.setAttribute(
             "allowfullscreen",
@@ -1105,7 +1141,9 @@ function buildVideoFeed(){
         const info =
             document.createElement("div");
 
-        info.className = "video-info";
+        info.className =
+            "video-info";
+
 
         const title =
             document.createElement("h3");
@@ -1122,6 +1160,7 @@ function buildVideoFeed(){
 
 
         info.appendChild(title);
+
         info.appendChild(text);
 
 
@@ -1160,6 +1199,7 @@ function buildVideoFeed(){
 
 
         slide.appendChild(info);
+
         slide.appendChild(actions);
 
         container.appendChild(slide);
@@ -1178,11 +1218,18 @@ function toggleWebsiteLike(button){
 
     button.classList.toggle("active");
 
+
     if(button.classList.contains("active")){
-        button.innerHTML = "♥<span>LIKED</span>";
+
+        button.innerHTML =
+            "♥<span>LIKED</span>";
+
     }
     else{
-        button.innerHTML = "♡<span>LIKE</span>";
+
+        button.innerHTML =
+            "♡<span>LIKE</span>";
+
     }
 
 }
@@ -1194,11 +1241,18 @@ function toggleFavorite(button){
 
     button.classList.toggle("active");
 
+
     if(button.classList.contains("active")){
-        button.innerHTML = "★<span>SAVED</span>";
+
+        button.innerHTML =
+            "★<span>SAVED</span>";
+
     }
     else{
-        button.innerHTML = "☆<span>SAVE</span>";
+
+        button.innerHTML =
+            "☆<span>SAVE</span>";
+
     }
 
 }
@@ -1219,7 +1273,10 @@ async function websiteShare(){
     }
     catch(error){
 
-        alert("Share link: " + window.location.href);
+        alert(
+            "Share link: " +
+            window.location.href
+        );
 
     }
 
@@ -1233,72 +1290,81 @@ function websiteComment(){
     const comment =
         prompt("Write your comment:");
 
+
     if(comment && comment.trim()){
 
-        alert("Comment saved on this device.");
+        alert(
+            "Comment saved on this device."
+        );
 
     }
 
 }
 
-    /* ================= RIGHT SWIPE ================= */
+
+/* ================= RIGHT SWIPE ================= */
 
 let touchStartX = 0;
+
 let touchStartY = 0;
 
-document.addEventListener("touchstart", function(e){
 
-    touchStartX = e.touches[0].clientX;
-    touchStartY = e.touches[0].clientY;
-
-});
+const home =
+    document.getElementById("home");
 
 
-document.addEventListener("touchend", function(e){
+home.addEventListener(
+    "touchstart",
+    function(e){
 
-    const touchEndX =
-        e.changedTouches[0].clientX;
+        touchStartX =
+            e.touches[0].clientX;
 
-    const touchEndY =
-        e.changedTouches[0].clientY;
+        touchStartY =
+            e.touches[0].clientY;
 
-    const diffX =
-        touchEndX - touchStartX;
-
-    const diffY =
-        touchEndY - touchStartY;
+    },
+    {passive:true}
+);
 
 
-    if(
-        Math.abs(diffX) > 80 &&
-        Math.abs(diffX) > Math.abs(diffY) &&
-        diffX > 0
-    ){
+home.addEventListener(
+    "touchend",
+    function(e){
 
-        openVideoFeed();
+        const touchEndX =
+            e.changedTouches[0].clientX;
+
+        const touchEndY =
+            e.changedTouches[0].clientY;
+
+
+        const diffX =
+            touchEndX - touchStartX;
+
+        const diffY =
+            touchEndY - touchStartY;
+
+
+        if(
+            diffX > 80 &&
+            Math.abs(diffX) >
+            Math.abs(diffY)
+        ){
+
+            openVideoFeed();
+
+        }
 
     }
+);
 
-});
+
+/* ================= START ================= */
+
+loadTikTokVideos();
 
 </script>
 
-<!-- ================= VIDEO FEED ================= -->
-
-<div class="video-feed" id="videoFeed">
-
-    <button
-        class="video-feed-close"
-        onclick="closeVideoFeed()">
-        ×
-    </button>
-
-    <div
-        class="video-feed-container"
-        id="videoFeedContainer">
-    </div>
-
-</div>
-    
 </body>
 </html>
