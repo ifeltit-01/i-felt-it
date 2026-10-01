@@ -85,25 +85,18 @@ body{
     right:7%;
     bottom:35px;
     z-index:1100;
-
     display:flex;
     align-items:center;
     gap:10px;
-
     padding:11px 16px;
-
     background:rgba(7,7,7,.82);
     border:1px solid #333;
-
     color:#fff;
     font-family:'Montserrat',sans-serif;
     font-size:10px;
     letter-spacing:2px;
-
     cursor:pointer;
-
     backdrop-filter:blur(12px);
-
     transition:.3s;
 }
 
@@ -574,7 +567,6 @@ footer p{
         align-items:center;
     }
 
-    /* Hide PC switch on mobile */
     .video-switch{
         display:none;
     }
@@ -620,13 +612,10 @@ footer p{
     align-items:center;
 }
 
-.video-slide iframe{
-    width:min(100vw,500px);
-    height:100vh;
-    border:0;
-}
 
-    .video-player-box{
+/* ================= VIDEO PLAYER ================= */
+
+.video-player-box{
     width:min(100vw,500px);
     height:100vh;
     display:flex;
@@ -647,6 +636,9 @@ footer p{
     letter-spacing:3px;
 }
 
+
+/* ================= CLOSE BUTTON ================= */
+
 .video-feed-close{
     position:absolute;
     top:25px;
@@ -661,6 +653,9 @@ footer p{
     cursor:pointer;
     border-radius:50%;
 }
+
+
+/* ================= VIDEO INFO ================= */
 
 .video-info{
     position:absolute;
@@ -683,6 +678,9 @@ footer p{
     font-size:12px;
     line-height:1.6;
 }
+
+
+/* ================= VIDEO ACTIONS ================= */
 
 .video-actions{
     position:absolute;
@@ -1081,9 +1079,9 @@ footer p{
 </div>
 
 
-<script>
+<!-- ================= JAVASCRIPT ================= -->
 
-    <script>
+<script>
 
 /* ================= MENU ================= */
 
@@ -1104,6 +1102,8 @@ const TIKTOK_API =
 let videos = [];
 
 let feedLoaded = false;
+
+let currentVideoIndex = 0;
 
 
 /* ================= LOAD VIDEOS ================= */
@@ -1259,7 +1259,6 @@ function buildVideoFeed(){
 
             </button>
 
-
             <button
                 class="video-action"
                 onclick="websiteComment()">
@@ -1272,7 +1271,6 @@ function buildVideoFeed(){
 
             </button>
 
-
             <button
                 class="video-action"
                 onclick="websiteShare()">
@@ -1284,7 +1282,6 @@ function buildVideoFeed(){
                 </span>
 
             </button>
-
 
             <button
                 class="video-action"
@@ -1310,15 +1307,23 @@ function buildVideoFeed(){
     feedLoaded = true;
 
 
-    /* ================= FIRST VIDEO ================= */
+    /* ================= LOAD FIRST VIDEO ================= */
 
     loadVideoAt(0);
+
 
     /* ================= PRELOAD SECOND ================= */
 
     if(videos.length > 1){
+
         loadVideoAt(1);
+
     }
+
+
+    /* ================= START OBSERVER ================= */
+
+    startVideoObserver();
 
 }
 
@@ -1406,8 +1411,6 @@ function unloadVideoAt(index){
     if(!box) return;
 
 
-    /* Keep current and nearby videos */
-
     box.innerHTML = `
         <div class="video-loading">
             LOADING...
@@ -1422,11 +1425,9 @@ function unloadVideoAt(index){
 
 /* ================= VIDEO OBSERVER ================= */
 
-let currentVideoIndex = 0;
-
-
 const videoObserver =
     new IntersectionObserver(
+
         function(entries){
 
             entries.forEach(function(entry){
@@ -1449,16 +1450,14 @@ const videoObserver =
                     index;
 
 
-                /* Load current video */
+                /* Load current */
 
                 loadVideoAt(index);
 
 
                 /* Preload next */
 
-                if(
-                    videos[index + 1]
-                ){
+                if(videos[index + 1]){
 
                     loadVideoAt(
                         index + 1
@@ -1469,9 +1468,7 @@ const videoObserver =
 
                 /* Preload previous */
 
-                if(
-                    videos[index - 1]
-                ){
+                if(videos[index - 1]){
 
                     loadVideoAt(
                         index - 1
@@ -1480,11 +1477,7 @@ const videoObserver =
                 }
 
 
-                /*
-                    Remove videos
-                    far away from
-                    current position
-                */
+                /* Unload far videos */
 
                 videos.forEach(
                     function(video,i){
@@ -1503,6 +1496,7 @@ const videoObserver =
             });
 
         },
+
         {
             root:
                 document.getElementById(
@@ -1510,7 +1504,9 @@ const videoObserver =
                 ),
 
             threshold:0.65
+
         }
+
     );
 
 
@@ -1698,6 +1694,7 @@ function websiteComment(){
 /* ================= MOBILE RIGHT SWIPE ================= */
 
 let touchStartX = 0;
+
 let touchStartY = 0;
 
 
@@ -1761,9 +1758,6 @@ home.addEventListener(
 /* ================= START ================= */
 
 loadTikTokVideos();
-
-
-</script>
 
 </script>
 
