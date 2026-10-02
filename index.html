@@ -1,18 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
 
-<head>
+«»
 
-<meta charset="UTF-8">
-
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
-
-<title>I Felt It — Feel What Words Can't Say</title>
-
-<style>
+<title>I Felt It — Feel What Words Can't Say</title><style>
 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
 
@@ -412,37 +404,45 @@ body{
 }
 
 
+/* ================= COLLECTION IMAGES ================= */
+
 .card-bg{
     position:absolute;
     inset:0;
 
-    background:
-        radial-gradient(
-            circle at 50% 30%,
-            #292929,
-            transparent 55%
-        ),
-        linear-gradient(145deg,#111,#050505);
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
 
     transition:.6s;
+
+    filter:brightness(.65);
 }
 
-    .card-love .card-bg{
+
+.card-love .card-bg{
     background-image:url("IMAGE_AND_VIDEOS/cover_image/love.png");
 }
+
 
 .card-heartbreak .card-bg{
     background-image:url("IMAGE_AND_VIDEOS/cover_image/heartbreak.png");
 }
 
+
 .card-memories .card-bg{
     background-image:url("IMAGE_AND_VIDEOS/cover_image/memorise.png");
 }
 
+
 .card:hover .card-bg{
     transform:scale(1.08);
+
+    filter:brightness(.8);
 }
 
+
+/* ================= CARD CONTENT ================= */
 
 .card-content{
     position:absolute;
@@ -896,9 +896,6 @@ footer p{
 }
 
 
-/* ================= WEBSITE ACTIONS ================= */
-
-
 /* ================= FEED LOADING ================= */
 
 .feed-loading{
@@ -1039,23 +1036,6 @@ footer p{
     }
 
 
-    .video-actions{
-        right:12px;
-
-        bottom:25px;
-
-        gap:10px;
-    }
-
-
-    .video-action{
-        width:46px;
-        height:46px;
-
-        font-size:19px;
-    }
-
-
     .video-feed-close{
         top:18px;
         left:18px;
@@ -1063,413 +1043,343 @@ footer p{
 
 }
 
-</style>
-
-</head>
-
-
-<body>
+</style></head><body><!-- ================= NAVIGATION ================= --><header class="navbar"><div class="logo">
+    I FELT IT
+</div>
 
 
-<!-- ================= NAVIGATION ================= -->
+<ul class="nav-links" id="navLinks">
 
-<header class="navbar">
+    <li>
+        <a href="#home">HOME</a>
+    </li>
 
-    <div class="logo">
-        I FELT IT
-    </div>
+    <li>
+        <a href="#story">STORY</a>
+    </li>
 
+    <li>
+        <a href="#collections">COLLECTIONS</a>
+    </li>
 
-    <ul class="nav-links" id="navLinks">
+    <li>
+        <a href="#social">SOCIAL</a>
+    </li>
 
-        <li>
-            <a href="#home">HOME</a>
-        </li>
-
-        <li>
-            <a href="#story">STORY</a>
-        </li>
-
-        <li>
-            <a href="#collections">COLLECTIONS</a>
-        </li>
-
-        <li>
-            <a href="#social">SOCIAL</a>
-        </li>
-
-    </ul>
+</ul>
 
 
-    <div
-        class="menu"
-        onclick="toggleMenu()"
-    >
-        ☰
-    </div>
-
-</header>
-
-
-<!-- ================= VIDEO FEED SWITCH ================= -->
-
-<button
-    class="video-switch"
-    onclick="openVideoFeed()"
+<div
+    class="menu"
+    onclick="toggleMenu()"
 >
+    ☰
+</div>
 
-    <span class="video-switch-dot"></span>
+</header><!-- ================= VIDEO FEED SWITCH ================= --><button
+class="video-switch"
+onclick="openVideoFeed()"
 
-    VIDEO FEED →
+«»
 
-</button>
+<span class="video-switch-dot"></span>
 
+VIDEO FEED →
 
-<!-- ================= HERO ================= -->
-
-<section
+</button><!-- ================= HERO ================= --><section
     class="hero"
     id="home"
->
+><div class="hero-content">
 
-    <div class="hero-content">
-
-        <div class="small-title">
-            WELCOME TO I FELT IT
-        </div>
-
-
-        <h1>
-            I <span>FELT</span> IT
-        </h1>
-
-
-        <p class="hero-text">
-
-            For the feelings we couldn't explain,
-            the words we couldn't say,
-            and the moments we never forgot.
-
-        </p>
-
-
-        <div class="hero-buttons">
-
-            <a
-                href="#collections"
-                class="btn btn-main"
-            >
-                EXPLORE COLLECTIONS
-            </a>
-
-
-            <a
-                href="#story"
-                class="btn btn-outline"
-            >
-                OUR STORY
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ================= QUOTE ================= -->
-
-<section class="quote-section">
-
-    <div class="quote">
-
-        “Some feelings are
-        <span>too deep</span>
-        to ever become words.”
-
-    </div>
-
-</section>
-
-
-<!-- ================= COLLECTIONS ================= -->
-
-<section
-    class="section"
-    id="collections"
->
-
-    <div class="section-header">
-
-        <div>
-
-            <div class="section-sub">
-                DISCOVER
-            </div>
-
-
-            <h2 class="section-title">
-                Collections
-            </h2>
-
-        </div>
-
-
-        <div class="section-sub">
-            MADE FOR WHAT YOU FEEL
-        </div>
-
+    <div class="small-title">
+        WELCOME TO I FELT IT
     </div>
 
 
-    <div class="cards">
-
-        <div class="card">
-
-            <div class="card-bg"></div>
+    <h1>
+        I <span>FELT</span> IT
+    </h1>
 
 
-            <div class="card-content">
+    <p class="hero-text">
 
-                <small>
-                    01
-                </small>
-
-
-                <h3>
-                    Love
-                </h3>
-
-            </div>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="card-bg"></div>
-
-
-            <div class="card-content">
-
-                <small>
-                    02
-                </small>
-
-
-                <h3>
-                    Heartbreak
-                </h3>
-
-            </div>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="card-bg"></div>
-
-
-            <div class="card-content">
-
-                <small>
-                    03
-                </small>
-
-
-                <h3>
-                    Memories
-                </h3>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ================= STORY ================= -->
-
-<section
-    class="story"
-    id="story"
->
-
-    <div class="story-image"></div>
-
-
-    <div class="story-text">
-
-        <div class="story-label">
-            THE IDEA BEHIND THE NAME
-        </div>
-
-
-        <h2>
-            You don't have to say it.
-        </h2>
-
-
-        <p>
-
-            I Felt It was created for those moments when
-            words aren't enough. Every feeling, every memory,
-            every silent moment has a story behind it.
-
-        </p>
-
-
-        <br>
-
-
-        <p>
-
-            This is more than a brand.
-            It's a place for people who simply...
-            felt it.
-
-        </p>
-
-    </div>
-
-</section>
-
-
-<!-- ================= SOCIAL ================= -->
-
-<section
-    class="social"
-    id="social"
->
-
-    <div class="section-sub">
-        FOLLOW THE JOURNEY
-    </div>
-
-
-    <h2>
-        Stay Connected.
-    </h2>
-
-
-    <p>
-
-        More feelings, stories and moments are waiting
-        on our social platforms.
+        For the feelings we couldn't explain,
+        the words we couldn't say,
+        and the moments we never forgot.
 
     </p>
 
 
-    <div class="social-links">
+    <div class="hero-buttons">
 
         <a
-            href="https://www.tiktok.com/@_ifeltit?_r=1&_t=ZS-9ABPJ3h4Ip3"
-            class="social-link"
+            href="#collections"
+            class="btn btn-main"
         >
-            TIKTOK
+            EXPLORE COLLECTIONS
         </a>
 
 
         <a
-            href="https://www.facebook.com/share/1FD7dtcAHf/"
-            class="social-link"
+            href="#story"
+            class="btn btn-outline"
         >
-            FACEBOOK
-        </a>
-
-
-        <a
-            href="https://youtube.com/@ifeltit-01?si=LcHR2MfGwP1M9UDn"
-            class="social-link"
-        >
-            YOUTUBE
-        </a>
-
-
-        <a
-            href="https://wa.me/94720629784"
-            class="social-link"
-        >
-            WHATSAPP
+            OUR STORY
         </a>
 
     </div>
 
-</section>
+</div>
 
+</section><!-- ================= QUOTE ================= --><section class="quote-section"><div class="quote">
 
-<!-- ================= FOOTER ================= -->
+    “Some feelings are
+    <span>too deep</span>
+    to ever become words.”
 
-<footer>
+</div>
 
-    <div class="footer-logo">
-        I FELT IT
-    </div>
+</section><!-- ================= COLLECTIONS ================= --><section
+    class="section"
+    id="collections"
+><div class="section-header">
 
+    <div>
 
-    <div class="footer-right">
-
-        <div class="footer-links">
-
-            <a href="terms.html">
-                TERMS
-            </a>
-
-
-            <a href="privacy.html">
-                PRIVACY
-            </a>
-
+        <div class="section-sub">
+            DISCOVER
         </div>
 
 
-        <p>
-            © 2026 I FELT IT — ALL RIGHTS RESERVED
-        </p>
+        <h2 class="section-title">
+            Collections
+        </h2>
 
     </div>
 
-</footer>
+
+    <div class="section-sub">
+        MADE FOR WHAT YOU FEEL
+    </div>
+
+</div>
 
 
-<!-- ================= VIDEO FEED ================= -->
+<div class="cards">
 
-<div
-    class="video-feed"
-    id="videoFeed"
->
+    <div class="card card-love">
 
-    <button
-        class="video-feed-close"
-        onclick="closeVideoFeed()"
-    >
-        ×
-    </button>
+        <div class="card-bg"></div>
 
 
-    <div
-        class="video-feed-container"
-        id="videoFeedContainer"
-    >
+        <div class="card-content">
 
-        <div
-            class="feed-loading"
-            id="feedLoading"
-        >
-            LOADING...
+            <small>
+                01
+            </small>
+
+
+            <h3>
+                Love
+            </h3>
+
+        </div>
+
+    </div>
+
+
+    <div class="card card-heartbreak">
+
+        <div class="card-bg"></div>
+
+
+        <div class="card-content">
+
+            <small>
+                02
+            </small>
+
+
+            <h3>
+                Heartbreak
+            </h3>
+
+        </div>
+
+    </div>
+
+
+    <div class="card card-memories">
+
+        <div class="card-bg"></div>
+
+
+        <div class="card-content">
+
+            <small>
+                03
+            </small>
+
+
+            <h3>
+                Memories
+            </h3>
+
         </div>
 
     </div>
 
 </div>
 
+</section><!-- ================= STORY ================= --><section
+    class="story"
+    id="story"
+><div class="story-image"></div>
 
-<!-- ================= JAVASCRIPT ================= -->
 
-<script>
+<div class="story-text">
+
+    <div class="story-label">
+        THE IDEA BEHIND THE NAME
+    </div>
+
+
+    <h2>
+        You don't have to say it.
+    </h2>
+
+
+    <p>
+
+        I Felt It was created for those moments when
+        words aren't enough. Every feeling, every memory,
+        every silent moment has a story behind it.
+
+    </p>
+
+
+    <br>
+
+
+    <p>
+
+        This is more than a brand.
+        It's a place for people who simply...
+        felt it.
+
+    </p>
+
+</div>
+
+</section><!-- ================= SOCIAL ================= --><section
+    class="social"
+    id="social"
+><div class="section-sub">
+    FOLLOW THE JOURNEY
+</div>
+
+
+<h2>
+    Stay Connected.
+</h2>
+
+
+<p>
+
+    More feelings, stories and moments are waiting
+    on our social platforms.
+
+</p>
+
+
+<div class="social-links">
+
+    <a
+        href="https://www.tiktok.com/@_ifeltit?_r=1&_t=ZS-9ABPJ3h4Ip3"
+        class="social-link"
+    >
+        TIKTOK
+    </a>
+
+
+    <a
+        href="https://www.facebook.com/share/1FD7dtcAHf/"
+        class="social-link"
+    >
+        FACEBOOK
+    </a>
+
+
+    <a
+        href="https://youtube.com/@ifeltit-01?si=LcHR2MfGwP1M9UDn"
+        class="social-link"
+    >
+        YOUTUBE
+    </a>
+
+
+    <a
+        href="https://wa.me/94720629784"
+        class="social-link"
+    >
+        WHATSAPP
+    </a>
+
+</div>
+
+</section><!-- ================= FOOTER ================= --><footer><div class="footer-logo">
+    I FELT IT
+</div>
+
+
+<div class="footer-right">
+
+    <div class="footer-links">
+
+        <a href="terms.html">
+            TERMS
+        </a>
+
+
+        <a href="privacy.html">
+            PRIVACY
+        </a>
+
+    </div>
+
+
+    <p>
+        © 2026 I FELT IT — ALL RIGHTS RESERVED
+    </p>
+
+</div>
+
+</footer><!-- ================= VIDEO FEED ================= --><div
+    class="video-feed"
+    id="videoFeed"
+><button
+    class="video-feed-close"
+    onclick="closeVideoFeed()"
+>
+    ×
+</button>
+
+
+<div
+    class="video-feed-container"
+    id="videoFeedContainer"
+>
+
+    <div
+        class="feed-loading"
+        id="feedLoading"
+    >
+        LOADING...
+    </div>
+
+</div>
+
+</div><!-- ================= JAVASCRIPT ================= --><script>
 
 
 /* ================= MENU ================= */
@@ -1707,9 +1617,6 @@ function buildVideoFeed(){
 
 
             slide.appendChild(info);
-
-
-            /* ================= WEBSITE ACTIONS ================= */
 
 
             container.appendChild(
@@ -2644,10 +2551,6 @@ function closeVideoFeed(){
 }
 
 
-/* ================= WEBSITE LIKE ================= */
-
-
-
 /* ================= MOBILE RIGHT SWIPE ================= */
 
 let touchStartX = 0;
@@ -2961,9 +2864,4 @@ window.addEventListener(
 
 feedOpening = false;
 
-</script>
-
-
-</body>
-
-</html>
+</script></body></html>
