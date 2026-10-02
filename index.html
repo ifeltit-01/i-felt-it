@@ -1,10 +1,18 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
 name="viewport"
 content="width=device-width, initial-scale=1.0"
+>
 
-«»
+<title>I Felt It — Feel What Words Can't Say</title>
 
-<title>I Felt It — Feel What Words Can't Say</title><style>
+<style>
 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
 
@@ -137,6 +145,116 @@ body{
 
     box-shadow:
         0 0 10px rgba(255,255,255,.7);
+}
+
+
+/* ================= MOBILE FEED HINT ================= */
+
+.mobile-feed-hint{
+    display:none;
+
+    position:fixed;
+
+    left:50%;
+    bottom:28px;
+
+    transform:translateX(-50%);
+
+    z-index:1200;
+
+    padding:11px 18px;
+
+    background:rgba(8,8,8,.72);
+
+    border:1px solid rgba(255,255,255,.16);
+
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+
+    border-radius:30px;
+
+    text-align:center;
+
+    pointer-events:none;
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,.35);
+
+    animation:
+        mobileFeedHint 6s ease forwards;
+}
+
+
+.mobile-feed-title{
+    display:block;
+
+    color:#fff;
+
+    font-size:9px;
+
+    letter-spacing:3px;
+
+    margin-bottom:4px;
+}
+
+
+.mobile-feed-swipe{
+    display:block;
+
+    color:#888;
+
+    font-size:8px;
+
+    letter-spacing:2px;
+}
+
+
+.mobile-feed-swipe strong{
+    color:#fff;
+
+    font-size:13px;
+
+    margin-left:5px;
+
+    display:inline-block;
+
+    animation:
+        swipeArrow 1.2s ease-in-out infinite;
+}
+
+
+@keyframes swipeArrow{
+
+    0%,100%{
+        transform:translateX(0);
+        opacity:.6;
+    }
+
+    50%{
+        transform:translateX(6px);
+        opacity:1;
+    }
+
+}
+
+
+@keyframes mobileFeedHint{
+
+    0%{
+        opacity:0;
+        transform:translate(-50%,10px);
+    }
+
+    12%,65%{
+        opacity:1;
+        transform:translate(-50%,0);
+    }
+
+    100%{
+        opacity:0;
+        transform:translate(-50%,10px);
+    }
+
 }
 
 
@@ -490,18 +608,24 @@ body{
 
 .story-image{
     background-image:url("IMAGE_AND_VIDEOS/story.png");
+
     background-size:cover;
+
     background-position:center;
+
     background-repeat:no-repeat;
 
     min-height:500px;
 }
 
+
 .story-text{
     padding:100px 10%;
 
     display:flex;
+
     flex-direction:column;
+
     justify-content:center;
 }
 
@@ -1023,6 +1147,13 @@ footer p{
     }
 
 
+    /* MOBILE VIDEO FEED HINT */
+
+    .mobile-feed-hint{
+        display:block;
+    }
+
+
     .video-info{
         left:15px;
 
@@ -1039,343 +1170,439 @@ footer p{
 
 }
 
-</style></head><body><!-- ================= NAVIGATION ================= --><header class="navbar"><div class="logo">
-    I FELT IT
-</div>
+</style>
+
+</head>
+
+<body>
 
 
-<ul class="nav-links" id="navLinks">
+<!-- ================= NAVIGATION ================= -->
 
-    <li>
-        <a href="#home">HOME</a>
-    </li>
+<header class="navbar">
 
-    <li>
-        <a href="#story">STORY</a>
-    </li>
+    <div class="logo">
+        I FELT IT
+    </div>
 
-    <li>
-        <a href="#collections">COLLECTIONS</a>
-    </li>
 
-    <li>
-        <a href="#social">SOCIAL</a>
-    </li>
+    <ul class="nav-links" id="navLinks">
 
-</ul>
+        <li>
+            <a href="#home">
+                HOME
+            </a>
+        </li>
 
+        <li>
+            <a href="#story">
+                STORY
+            </a>
+        </li>
+
+        <li>
+            <a href="#collections">
+                COLLECTIONS
+            </a>
+        </li>
+
+        <li>
+            <a href="#social">
+                SOCIAL
+            </a>
+        </li>
+
+    </ul>
+
+
+    <div
+        class="menu"
+        onclick="toggleMenu()"
+    >
+        ☰
+    </div>
+
+</header>
+
+
+<!-- ================= VIDEO FEED SWITCH ================= -->
+
+<button
+    class="video-switch"
+    onclick="openVideoFeed()"
+>
+
+    <span class="video-switch-dot"></span>
+
+    VIDEO FEED →
+
+</button>
+
+
+<!-- ================= MOBILE VIDEO FEED HINT ================= -->
 
 <div
-    class="menu"
-    onclick="toggleMenu()"
+    class="mobile-feed-hint"
+    id="mobileFeedHint"
 >
-    ☰
+
+    <span class="mobile-feed-title">
+        VIDEO FEED
+    </span>
+
+    <span class="mobile-feed-swipe">
+        Swipe right
+        <strong>→</strong>
+    </span>
+
 </div>
 
-</header><!-- ================= VIDEO FEED SWITCH ================= --><button
-class="video-switch"
-onclick="openVideoFeed()"
 
-«»
+<!-- ================= HERO ================= -->
 
-<span class="video-switch-dot"></span>
-
-VIDEO FEED →
-
-</button><!-- ================= HERO ================= --><section
+<section
     class="hero"
     id="home"
-><div class="hero-content">
+>
 
-    <div class="small-title">
-        WELCOME TO I FELT IT
+    <div class="hero-content">
+
+        <div class="small-title">
+            WELCOME TO I FELT IT
+        </div>
+
+
+        <h1>
+            I <span>FELT</span> IT
+        </h1>
+
+
+        <p class="hero-text">
+
+            For the feelings we couldn't explain,
+            the words we couldn't say,
+            and the moments we never forgot.
+
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <a
+                href="#collections"
+                class="btn btn-main"
+            >
+                EXPLORE COLLECTIONS
+            </a>
+
+
+            <a
+                href="#story"
+                class="btn btn-outline"
+            >
+                OUR STORY
+            </a>
+
+        </div>
+
     </div>
 
-
-    <h1>
-        I <span>FELT</span> IT
-    </h1>
+</section>
 
 
-    <p class="hero-text">
+<!-- ================= QUOTE ================= -->
 
-        For the feelings we couldn't explain,
-        the words we couldn't say,
-        and the moments we never forgot.
+<section class="quote-section">
 
-    </p>
+    <div class="quote">
 
-
-    <div class="hero-buttons">
-
-        <a
-            href="#collections"
-            class="btn btn-main"
-        >
-            EXPLORE COLLECTIONS
-        </a>
-
-
-        <a
-            href="#story"
-            class="btn btn-outline"
-        >
-            OUR STORY
-        </a>
+        “Some feelings are
+        <span>too deep</span>
+        to ever become words.”
 
     </div>
 
-</div>
+</section>
 
-</section><!-- ================= QUOTE ================= --><section class="quote-section"><div class="quote">
 
-    “Some feelings are
-    <span>too deep</span>
-    to ever become words.”
+<!-- ================= COLLECTIONS ================= -->
 
-</div>
-
-</section><!-- ================= COLLECTIONS ================= --><section
+<section
     class="section"
     id="collections"
-><div class="section-header">
+>
 
-    <div>
+    <div class="section-header">
+
+        <div>
+
+            <div class="section-sub">
+                DISCOVER
+            </div>
+
+
+            <h2 class="section-title">
+                Collections
+            </h2>
+
+        </div>
+
 
         <div class="section-sub">
-            DISCOVER
-        </div>
-
-
-        <h2 class="section-title">
-            Collections
-        </h2>
-
-    </div>
-
-
-    <div class="section-sub">
-        MADE FOR WHAT YOU FEEL
-    </div>
-
-</div>
-
-
-<div class="cards">
-
-    <div class="card card-love">
-
-        <div class="card-bg"></div>
-
-
-        <div class="card-content">
-
-            <small>
-                01
-            </small>
-
-
-            <h3>
-                Love
-            </h3>
-
+            MADE FOR WHAT YOU FEEL
         </div>
 
     </div>
 
 
-    <div class="card card-heartbreak">
+    <div class="cards">
 
-        <div class="card-bg"></div>
+        <div class="card card-love">
 
-
-        <div class="card-content">
-
-            <small>
-                02
-            </small>
+            <div class="card-bg"></div>
 
 
-            <h3>
-                Heartbreak
-            </h3>
+            <div class="card-content">
+
+                <small>
+                    01
+                </small>
+
+
+                <h3>
+                    Love
+                </h3>
+
+            </div>
+
+        </div>
+
+
+        <div class="card card-heartbreak">
+
+            <div class="card-bg"></div>
+
+
+            <div class="card-content">
+
+                <small>
+                    02
+                </small>
+
+
+                <h3>
+                    Heartbreak
+                </h3>
+
+            </div>
+
+        </div>
+
+
+        <div class="card card-memories">
+
+            <div class="card-bg"></div>
+
+
+            <div class="card-content">
+
+                <small>
+                    03
+                </small>
+
+
+                <h3>
+                    Memories
+                </h3>
+
+            </div>
 
         </div>
 
     </div>
 
-
-    <div class="card card-memories">
-
-        <div class="card-bg"></div>
+</section>
 
 
-        <div class="card-content">
+<!-- ================= STORY ================= -->
 
-            <small>
-                03
-            </small>
-
-
-            <h3>
-                Memories
-            </h3>
-
-        </div>
-
-    </div>
-
-</div>
-
-</section><!-- ================= STORY ================= --><section
+<section
     class="story"
     id="story"
-><div class="story-image"></div>
+>
+
+    <div class="story-image"></div>
 
 
-<div class="story-text">
+    <div class="story-text">
 
-    <div class="story-label">
-        THE IDEA BEHIND THE NAME
+        <div class="story-label">
+            THE IDEA BEHIND THE NAME
+        </div>
+
+
+        <h2>
+            You don't have to say it.
+        </h2>
+
+
+        <p>
+
+            I Felt It was created for those moments when
+            words aren't enough. Every feeling, every memory,
+            every silent moment has a story behind it.
+
+        </p>
+
+
+        <br>
+
+
+        <p>
+
+            This is more than a brand.
+            It's a place for people who simply...
+            felt it.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SOCIAL ================= -->
+
+<section
+    class="social"
+    id="social"
+>
+
+    <div class="section-sub">
+        FOLLOW THE JOURNEY
     </div>
 
 
     <h2>
-        You don't have to say it.
+        Stay Connected.
     </h2>
 
 
     <p>
 
-        I Felt It was created for those moments when
-        words aren't enough. Every feeling, every memory,
-        every silent moment has a story behind it.
+        More feelings, stories and moments are waiting
+        on our social platforms.
 
     </p>
 
 
-    <br>
+    <div class="social-links">
 
-
-    <p>
-
-        This is more than a brand.
-        It's a place for people who simply...
-        felt it.
-
-    </p>
-
-</div>
-
-</section><!-- ================= SOCIAL ================= --><section
-    class="social"
-    id="social"
-><div class="section-sub">
-    FOLLOW THE JOURNEY
-</div>
-
-
-<h2>
-    Stay Connected.
-</h2>
-
-
-<p>
-
-    More feelings, stories and moments are waiting
-    on our social platforms.
-
-</p>
-
-
-<div class="social-links">
-
-    <a
-        href="https://www.tiktok.com/@_ifeltit?_r=1&_t=ZS-9ABPJ3h4Ip3"
-        class="social-link"
-    >
-        TIKTOK
-    </a>
-
-
-    <a
-        href="https://www.facebook.com/share/1FD7dtcAHf/"
-        class="social-link"
-    >
-        FACEBOOK
-    </a>
-
-
-    <a
-        href="https://youtube.com/@ifeltit-01?si=LcHR2MfGwP1M9UDn"
-        class="social-link"
-    >
-        YOUTUBE
-    </a>
-
-
-    <a
-        href="https://wa.me/94720629784"
-        class="social-link"
-    >
-        WHATSAPP
-    </a>
-
-</div>
-
-</section><!-- ================= FOOTER ================= --><footer><div class="footer-logo">
-    I FELT IT
-</div>
-
-
-<div class="footer-right">
-
-    <div class="footer-links">
-
-        <a href="terms.html">
-            TERMS
+        <a
+            href="https://www.tiktok.com/@_ifeltit?_r=1&_t=ZS-9ABPJ3h4Ip3"
+            class="social-link"
+        >
+            TIKTOK
         </a>
 
 
-        <a href="privacy.html">
-            PRIVACY
+        <a
+            href="https://www.facebook.com/share/1FD7dtcAHf/"
+            class="social-link"
+        >
+            FACEBOOK
+        </a>
+
+
+        <a
+            href="https://youtube.com/@ifeltit-01?si=LcHR2MfGwP1M9UDn"
+            class="social-link"
+        >
+            YOUTUBE
+        </a>
+
+
+        <a
+            href="https://wa.me/94720629784"
+            class="social-link"
+        >
+            WHATSAPP
         </a>
 
     </div>
 
+</section>
 
-    <p>
-        © 2026 I FELT IT — ALL RIGHTS RESERVED
-    </p>
 
-</div>
+<!-- ================= FOOTER ================= -->
 
-</footer><!-- ================= VIDEO FEED ================= --><div
-    class="video-feed"
-    id="videoFeed"
-><button
-    class="video-feed-close"
-    onclick="closeVideoFeed()"
->
-    ×
-</button>
+<footer>
 
+    <div class="footer-logo">
+        I FELT IT
+    </div>
+
+
+    <div class="footer-right">
+
+        <div class="footer-links">
+
+            <a href="terms.html">
+                TERMS
+            </a>
+
+
+            <a href="privacy.html">
+                PRIVACY
+            </a>
+
+        </div>
+
+
+        <p>
+            © 2026 I FELT IT — ALL RIGHTS RESERVED
+        </p>
+
+    </div>
+
+</footer>
+
+
+<!-- ================= VIDEO FEED ================= -->
 
 <div
-    class="video-feed-container"
-    id="videoFeedContainer"
+    class="video-feed"
+    id="videoFeed"
 >
 
-    <div
-        class="feed-loading"
-        id="feedLoading"
+    <button
+        class="video-feed-close"
+        onclick="closeVideoFeed()"
     >
-        LOADING...
+        ×
+    </button>
+
+
+    <div
+        class="video-feed-container"
+        id="videoFeedContainer"
+    >
+
+        <div
+            class="feed-loading"
+            id="feedLoading"
+        >
+            LOADING...
+        </div>
+
     </div>
 
 </div>
 
-</div><!-- ================= JAVASCRIPT ================= --><script>
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
 
 
 /* ================= MENU ================= */
@@ -1459,11 +1686,6 @@ async function loadTikTokVideos(){
         buildVideoFeed();
 
 
-        /*
-         * After the feed is built,
-         * load ONLY the first video.
-         */
-
         if(currentVideoIndex === -1){
 
             currentVideoIndex = 0;
@@ -1518,9 +1740,7 @@ function buildVideoFeed(){
 
 
     if(loading){
-
         loading.remove();
-
     }
 
 
@@ -1540,8 +1760,6 @@ function buildVideoFeed(){
             slide.dataset.index =
                 index;
 
-
-            /* ================= PLAYER BOX ================= */
 
             const playerBox =
                 document.createElement(
@@ -1572,8 +1790,6 @@ function buildVideoFeed(){
                 playerBox
             );
 
-
-            /* ================= INFO ================= */
 
             const info =
                 document.createElement(
@@ -1660,9 +1876,7 @@ function loadVideoAt(index){
     if(
         box.dataset.loaded === "true"
     ){
-
         return;
-
     }
 
 
@@ -1674,9 +1888,7 @@ function loadVideoAt(index){
         !video ||
         !video.id
     ){
-
         return;
-
     }
 
 
@@ -1685,13 +1897,6 @@ function loadVideoAt(index){
             "iframe"
         );
 
-
-    /*
-     * TikTok official Embed Player.
-     *
-     * controls=0 hides TikTok's
-     * playback controls.
-     */
 
     iframe.src =
         "https://www.tiktok.com/player/v1/" +
@@ -1755,10 +1960,6 @@ function loadVideoAt(index){
         "true";
 
 
-    /*
-     * Our own tap layer.
-     */
-
     const tapLayer =
         document.createElement(
             "div"
@@ -1788,10 +1989,6 @@ function loadVideoAt(index){
     );
 
 
-    /*
-     * Pause indicator.
-     */
-
     const pauseIndicator =
         document.createElement(
             "div"
@@ -1811,17 +2008,9 @@ function loadVideoAt(index){
     );
 
 
-    /*
-     * Wait for TikTok player ready.
-     */
-
     iframe.addEventListener(
         "load",
         function(){
-
-            /*
-             * Ask the player to start.
-             */
 
             setTimeout(
                 function(){
@@ -1865,9 +2054,7 @@ function sendPlayerCommand(
         !iframe ||
         !iframe.contentWindow
     ){
-
         return;
-
     }
 
 
@@ -1912,9 +2099,7 @@ function getIframeAt(index){
 
 /* ================= PLAY CURRENT VIDEO ================= */
 
-function playCurrentVideo(
-    index
-){
+function playCurrentVideo(index){
 
     const iframe =
         getIframeAt(index);
@@ -1924,11 +2109,6 @@ function playCurrentVideo(
         return;
     }
 
-
-    /*
-     * Current video:
-     * sound ON + play.
-     */
 
     sendPlayerCommand(
         iframe,
@@ -1965,9 +2145,7 @@ function playCurrentVideo(
 
 /* ================= STOP PREVIOUS VIDEO ================= */
 
-function stopVideo(
-    index
-){
+function stopVideo(index){
 
     const iframe =
         getIframeAt(index);
@@ -1978,29 +2156,17 @@ function stopVideo(
     }
 
 
-    /*
-     * Stop it.
-     */
-
     sendPlayerCommand(
         iframe,
         "pause"
     );
 
 
-    /*
-     * Mute it.
-     */
-
     sendPlayerCommand(
         iframe,
         "mute"
     );
 
-
-    /*
-     * Reset to beginning.
-     */
 
     sendPlayerCommand(
         iframe,
@@ -2032,21 +2198,12 @@ function stopVideo(
 
 /* ================= TAP PLAY / PAUSE ================= */
 
-function toggleVideoPlay(
-    index
-){
-
-    /*
-     * Make sure this is
-     * the current video.
-     */
+function toggleVideoPlay(index){
 
     if(
         index !== currentVideoIndex
     ){
-
         return;
-
     }
 
 
@@ -2095,11 +2252,6 @@ function toggleVideoPlay(
     }
     else{
 
-        /*
-         * User tapped,
-         * so sound can be enabled.
-         */
-
         sendPlayerCommand(
             iframe,
             "unMute"
@@ -2131,9 +2283,7 @@ function toggleVideoPlay(
 
 /* ================= REMOVE VIDEO ================= */
 
-function unloadVideoAt(
-    index
-){
+function unloadVideoAt(index){
 
     const slide =
         document.querySelector(
@@ -2157,17 +2307,10 @@ function unloadVideoAt(
     }
 
 
-    /*
-     * Only unload videos that
-     * are not the current video.
-     */
-
     if(
         index === currentVideoIndex
     ){
-
         return;
-
     }
 
 
@@ -2188,23 +2331,15 @@ function unloadVideoAt(
 
 /* ================= CHANGE CURRENT VIDEO ================= */
 
-function activateVideo(
-    newIndex
-){
+function activateVideo(newIndex){
 
     if(
         newIndex < 0 ||
         newIndex >= videos.length
     ){
-
         return;
-
     }
 
-
-    /*
-     * Nothing to do if already current.
-     */
 
     if(
         currentVideoIndex === newIndex
@@ -2227,10 +2362,6 @@ function activateVideo(
     }
 
 
-    /*
-     * Stop previous video.
-     */
-
     if(
         currentVideoIndex >= 0
     ){
@@ -2242,27 +2373,14 @@ function activateVideo(
     }
 
 
-    /*
-     * Change index.
-     */
-
     currentVideoIndex =
         newIndex;
 
-
-    /*
-     * Load only current video.
-     */
 
     loadVideoAt(
         newIndex
     );
 
-
-    /*
-     * Wait for iframe if it
-     * was just created.
-     */
 
     setTimeout(
         function(){
@@ -2281,13 +2399,6 @@ function activateVideo(
         300
     );
 
-
-    /*
-     * Remove old videos that
-     * are far away.
-     *
-     * This reduces memory usage.
-     */
 
     videos.forEach(
         function(video,index){
@@ -2321,20 +2432,13 @@ const videoObserver =
                 null;
 
 
-            /*
-             * Find the slide that is
-             * most visible.
-             */
-
             entries.forEach(
                 function(entry){
 
                     if(
                         !entry.isIntersecting
                     ){
-
                         return;
-
                     }
 
 
@@ -2367,11 +2471,6 @@ const videoObserver =
                     slide.dataset.index
                 );
 
-
-            /*
-             * Only activate when
-             * 65%+ visible.
-             */
 
             if(
                 bestEntry.intersectionRatio >= .65
@@ -2433,6 +2532,25 @@ async function openVideoFeed(){
         document.getElementById(
             "videoFeed"
         );
+
+
+    /*
+     * Hide mobile hint immediately
+     * when feed opens.
+     */
+
+    const mobileFeedHint =
+        document.getElementById(
+            "mobileFeedHint"
+        );
+
+
+    if(mobileFeedHint){
+
+        mobileFeedHint.style.display =
+            "none";
+
+    }
 
 
     feed.classList.add(
@@ -2518,10 +2636,6 @@ function closeVideoFeed(){
         );
 
 
-    /*
-     * Stop current video.
-     */
-
     if(
         currentVideoIndex >= 0
     ){
@@ -2568,9 +2682,7 @@ home.addEventListener(
             !e.touches ||
             !e.touches[0]
         ){
-
             return;
-
         }
 
 
@@ -2596,9 +2708,7 @@ home.addEventListener(
             !e.changedTouches ||
             !e.changedTouches[0]
         ){
-
             return;
-
         }
 
 
@@ -2630,6 +2740,20 @@ home.addEventListener(
             Math.abs(diffY)
         ){
 
+            const mobileFeedHint =
+                document.getElementById(
+                    "mobileFeedHint"
+                );
+
+
+            if(mobileFeedHint){
+
+                mobileFeedHint.style.display =
+                    "none";
+
+            }
+
+
             openVideoFeed();
 
         }
@@ -2643,18 +2767,6 @@ home.addEventListener(
 
 /* ================= PLAYER EVENTS ================= */
 
-/*
- * TikTok sends player events
- * through postMessage.
- *
- * We listen for:
- *
- * onPlayerReady
- * onStateChange
- * onMute
- * onPlayerError
- */
-
 window.addEventListener(
     "message",
     function(event){
@@ -2667,16 +2779,9 @@ window.addEventListener(
             !data ||
             data["x-tiktok-player"] !== true
         ){
-
             return;
-
         }
 
-
-        /*
-         * Find iframe that sent
-         * this message.
-         */
 
         const iframes =
             document.querySelectorAll(
@@ -2738,11 +2843,6 @@ window.addEventListener(
                 "true";
 
 
-            /*
-             * Only current video
-             * should start.
-             */
-
             if(
                 index ===
                 currentVideoIndex
@@ -2763,13 +2863,6 @@ window.addEventListener(
             data.type ===
             "onStateChange"
         ){
-
-            /*
-             * 0 = ended
-             * 1 = playing
-             * 2 = paused
-             * 3 = buffering
-             */
 
             const state =
                 Number(
@@ -2793,11 +2886,6 @@ window.addEventListener(
             }
 
 
-            /*
-             * If a non-current video
-             * somehow starts, stop it.
-             */
-
             if(
                 state === 1 &&
                 index !== currentVideoIndex
@@ -2820,9 +2908,7 @@ window.addEventListener(
         ){
 
             /*
-             * Nothing else needed here.
-             * This event confirms the
-             * player mute state.
+             * Player mute state confirmed.
              */
 
         }
@@ -2848,16 +2934,9 @@ window.addEventListener(
 
 /* ================= CLEAN PAGE LOAD ================= */
 
-/*
- * IMPORTANT:
- *
- * Do NOT load TikTok API when
- * the home page first opens.
- *
- * It only loads after the user
- * opens the video feed.
- */
-
 feedOpening = false;
 
-</script></body></html>
+</script>
+
+</body>
+</html>
